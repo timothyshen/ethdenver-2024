@@ -3,7 +3,7 @@ pragma solidity ^0.8.23;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./IModelNFT.sol";
+import "./interface/IModelNFT.sol";
 
 contract ModelNFT is ERC721Enumerable, Ownable, IModelNFT {
     mapping(uint256 => ModelInfo) private _modelInfos;
