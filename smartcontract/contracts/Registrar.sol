@@ -1,31 +1,36 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-import { IP } from "@storyprotocol/contracts/lib/IP.sol";
-import { IPAssetRegistry } from "@storyprotocol/contracts/registries/IPAssetRegistry.sol";
-import { IPResolver } from "@storyprotocol/contracts/resolvers/IPResolver.sol";
+import "@storyprotocol/contracts/registries/IPAssetRegistry.sol";
+import "@storyprotocol/contracts/lib/IP.sol";
+import "./IModelNFT.sol";
 
 contract IPARegistrar {
-
-
-    address public immutable NFT;
+    IModelNFT public immutable NFT;
     address public immutable IP_RESOLVER;
     IPAssetRegistry public immutable IPA_REGISTRY;
 
     constructor(
         address ipAssetRegistry,
         address resolver,
-        address nft
+        IModelNFT nft
     ) {
         IPA_REGISTRY = IPAssetRegistry(ipAssetRegistry);
         IP_RESOLVER = resolver;
         NFT = nft;
     }
 
-    function register(
-        string memory ipName
-    ) external returns (address) {
-        uint256 tokenId = NFT.mint();
+    function register(string memory ipName, string memory createdAt, string memory numParams, string memory modelName) external returns (address) {
+        uint256 tokenId = NFT.totalSupply() + 1; // Assuming token IDs are sequential starting from 1
+        IModelNFT.ModelInfo memory modelInfo = IModelNFT.ModelInfo({
+            creator: msg.sender,
+            createdAt: createdAt,
+            numParams: numParams,
+            modelName: modelName
+        });
+
+        NFT.mintWithModelInfo(msg.sender, tokenId, modelInfo);
+
         bytes memory metadata = abi.encode(
             IP.MetadataV1({
                 name: ipName,
@@ -35,7 +40,7 @@ contract IPARegistrar {
                 uri: ""
             })
         );
+
         return IPA_REGISTRY.register(block.chainId, address(NFT), tokenId, IP_RESOLVER, true, metadata);
     }
 }
-

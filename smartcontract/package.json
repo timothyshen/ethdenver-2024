@@ -2,10 +2,10 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
-    "hardhat": "^2.20.1",
-    "@openzeppelin/contracts": "5.0.1",
+    "@openzeppelin/contracts": "^5.0.1",
     "@openzeppelin/contracts-upgradeable": "5.0.1",
+    "@storyprotocol/contracts": "https://github.com/storyprotocol/protocol-core#main",
     "@storyprotocol/periphery": "https://github.com/storyprotocol/protocol-periphery#main",
-    "@storyprotocol/contracts": "https://github.com/storyprotocol/protocol-core#main"
+    "hardhat": "^2.20.1"
   }
 }

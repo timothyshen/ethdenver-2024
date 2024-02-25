@@ -1,22 +1,27 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-import {symbol} from "filename";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "./IModelNFT.sol";
 
+contract ModelNFT is ERC721Enumerable, Ownable, IModelNFT {
+    mapping(uint256 => ModelInfo) private _modelInfos;
 
-contract ModelNFT is IERC721{
+    constructor(string memory name, string memory symbol) ERC721(name, symbol) {}
 
-    struct ModelInfo {
-        address creator;
-        string createdAt;
-        string numPrarams;
-        string modelName;
+    function mintWithModelInfo(address to, uint256 tokenId, ModelInfo memory modelInfo) public override onlyOwner {
+        _mint(to, tokenId);
+        _setModelInfo(tokenId, modelInfo);
     }
 
-    mapping (address => ModelInfo) public modelInfo;
+    function _setModelInfo(uint256 tokenId, ModelInfo memory modelInfo) internal {
+        require(_exists(tokenId), "ERC721Metadata: ModelInfo set of nonexistent token");
+        _modelInfos[tokenId] = modelInfo;
+    }
 
-    function mint() public {
-        _mint(msg.sender, totalSupply() + 1);
-        modelInfo[msg.sender] = ModelInfo(msg.sender, "2021-10-10", "10", "model1");
+    function getModelInfo(uint256 tokenId) public view returns (ModelInfo memory) {
+        require(_exists(tokenId), "ERC721Metadata: Query for nonexistent token");
+        return _modelInfos[tokenId];
     }
 }
