@@ -6,6 +6,8 @@ import "@story-protocol/periphery/contracts/StoryProtocolGateway.sol";
 import "@story-protocol/core/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
 
 
+// This is the policy creation contract for the IPA
+
 contract ExampleIPAPolicyCreation {
    
   StoryProtocolGateway public SPG;

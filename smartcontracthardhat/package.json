@@ -5,15 +5,13 @@
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
     "@openzeppelin/contracts": "^5.0.1",
     "@openzeppelin/contracts-upgradeable": "5.0.1",
-    "@storyprotocol/contracts": "https://github.com/storyprotocol/protocol-core#main",
-    "@storyprotocol/periphery": "https://github.com/storyprotocol/protocol-periphery#main",
     "hardhat": "^2.20.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-verify": "^2.0.0",
     "@nomicfoundation/hardhat-viem": "^1.0.0",
-    "@story-protocol/core": "https://github.com/storyprotocol/protocol-core#beta-rc5",
+    "@story-protocol/core": "https://github.com/storyprotocol/protocol-core#main",
     "@story-protocol/periphery": "https://github.com/storyprotocol/protocol-periphery#main",
     "@types/chai": "^4.2.0",
     "@types/chai-as-promised": "^7.1.6",

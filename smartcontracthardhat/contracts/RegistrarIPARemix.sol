@@ -6,6 +6,8 @@ import "@story-protocol/core/contracts/lib/IP.sol";
 import "@story-protocol/core/contracts/resolvers/IPResolver.sol";
 import "./interface/IModelNFT.sol";
 
+// This is the registrar contract for the IP Assets Remix
+
 contract ExampleIPARemixRegistration {
    
   uint256 public constant MIN_ROYALTY = 10;

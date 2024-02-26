@@ -6,6 +6,8 @@ import "@story-protocol/periphery/contracts/StoryProtocolGateway.sol";
 import "@story-protocol/core/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
 import "@story-protocol/core/contracts/registries/IPAssetRegistry.sol";
 
+// This is the licensing contract for the IPA
+
 contract ModelNFTLiecnse{
    
     bytes ROYALTY_CONTEXT = "This is loyalty fee for the license.";

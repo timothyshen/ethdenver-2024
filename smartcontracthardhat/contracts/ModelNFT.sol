@@ -5,6 +5,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interface/IModelNFT.sol";
 
+// ModelNFT is an ERC721 contract that represents a model NFT
+// It is used to mint and store model NFTs metadata
+
 contract ModelNFT is ERC721Enumerable, Ownable, IModelNFT {
     mapping(uint256 => ModelInfo) private _modelInfos;
 

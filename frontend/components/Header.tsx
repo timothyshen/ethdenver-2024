@@ -7,7 +7,6 @@ import { ConnectKitButton } from 'connectkit';
 import NextLink from "next/link";
 
 
-import { Suspense } from "react";
 
 export function Header() {
     return (
@@ -17,7 +16,7 @@ export function Header() {
                     Make NFT Story
                 </h1>
                 <ConnectKitButton />
-                <Navbar />
+
             </div>
         </div>
     );
@@ -27,25 +26,25 @@ export function Navbar() {
     return (
         <div>
             <NextLink href="/mint" passHref>
-                <Button as="a" color="blue" variant="outline">
+                <Button variant="outline">
                     Mint NFT
                 </Button>
             </NextLink>
             <NextLink href="/register" passHref>
-                <Button as="a" color="purple" variant="outline" icon={<Icon name="edit" />}>
+                <Button variant="outline">
                     Register IP
                 </Button>
             </NextLink>
             <NextLink href="/license" passHref>
-                <Button as="a" color="orange" variant="outline" icon={<Icon name="copy" />}>
+                <Button variant="outline">
                     Get License
                 </Button>
             </NextLink>
             <NextLink href="/write" passHref>
-                <Button as="a" color="teal" variant="solid" icon={<Icon name="arrow-forward" />} iconPosition="right">
+                <Button variant="outline">
                     Write Story
                 </Button>
             </NextLink>
-        </NavbarContainer>
+        </div>
     );
 }

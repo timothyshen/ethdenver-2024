@@ -4,6 +4,8 @@ pragma solidity ^0.8.23;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+// LicenseNFT is an ERC721 contract that represents a license NFT
+
 contract LicenseNFT is ERC721, Ownable {
     // Event to emit when a new license is minted
     event LicenseMinted(uint256 indexed tokenId, address indexed to, uint256 indexed originalNftId);

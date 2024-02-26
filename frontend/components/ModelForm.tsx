@@ -1,11 +1,8 @@
+'use client'
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-
-type ModelProps = {
-    name: string;
-    numParam: string;
-};
+import { ModelProps } from '@/types';
 
 export const ModelForm = () => {
     // State initialization
