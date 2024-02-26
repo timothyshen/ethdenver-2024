@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button } from './ui/button'
 import { ModelProps } from '@/types'
 
@@ -6,7 +5,7 @@ import { ModelProps } from '@/types'
 
 
 export const MintModelNFT = (ModelData: ModelProps) => {
-    
+
 
     const mintNFT = async () => {
         console.log(ModelData)

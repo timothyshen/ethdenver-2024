@@ -22,29 +22,3 @@ export function Header() {
     );
 }
 
-export function Navbar() {
-    return (
-        <div>
-            <NextLink href="/mint" passHref>
-                <Button variant="outline">
-                    Mint NFT
-                </Button>
-            </NextLink>
-            <NextLink href="/register" passHref>
-                <Button variant="outline">
-                    Register IP
-                </Button>
-            </NextLink>
-            <NextLink href="/license" passHref>
-                <Button variant="outline">
-                    Get License
-                </Button>
-            </NextLink>
-            <NextLink href="/write" passHref>
-                <Button variant="outline">
-                    Write Story
-                </Button>
-            </NextLink>
-        </div>
-    );
-}

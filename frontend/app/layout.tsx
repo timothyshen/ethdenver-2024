@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ProviderWrap from "@/provider/ProviderWrap";
+import { Web3Provider } from "@/provider/ProviderWrap";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ProviderWrap>
+    <Web3Provider>
       <html lang="en">
         <body className={inter.className}>{children}</body>
       </html>
-    </ProviderWrap>
+    </Web3Provider>
   );
 }
