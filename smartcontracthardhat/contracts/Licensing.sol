@@ -1,10 +1,10 @@
 // SPDX-license-identifier: MIT
 pragma solidity ^0.8.23;
 
-import "@storyprotocol/contracts/contracts/modules/licensing/LicensingModule.sol";
-import "@storyprotocol/periphery/contracts/StoryProtocolGateway.sol";
-import "@storyprotocol/contracts/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
-import "@storyprotocol/contracts/contracts/registries/IPAssetRegistry.sol";
+import "@story-protocol/core/contracts/modules/licensing/LicensingModule.sol";
+import "@story-protocol/periphery/contracts/StoryProtocolGateway.sol";
+import "@story-protocol/core/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
+import "@story-protocol/core/contracts/registries/IPAssetRegistry.sol";
 
 contract ModelNFTLiecnse{
    

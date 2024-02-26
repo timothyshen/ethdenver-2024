@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-import "@storyprotocol/contracts/contracts/interfaces/modules/licensing/ILicensingModule.sol";
-import "@storyprotocol/periphery/contracts/StoryProtocolGateway.sol";
-import "@storyprotocol/contracts/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
+import "@story-protocol/core/contracts/interfaces/modules/licensing/ILicensingModule.sol";
+import "@story-protocol/periphery/contracts/StoryProtocolGateway.sol";
+import "@story-protocol/core/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
 
 
 contract ExampleIPAPolicyCreation {
@@ -18,7 +18,7 @@ contract ExampleIPAPolicyCreation {
     MINTING_FEE = mintingFee;
     MINTING_FEE_TOKEN = mintingFeeToken;
     SPG = StoryProtocolGateway(spg);
-  }n
+  }
   
   function registerPolicy(
   		PILPolicy memory pilPolicy

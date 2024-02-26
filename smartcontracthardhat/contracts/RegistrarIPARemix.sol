@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-import "@storyprotocol/contracts/contracts/registries/IPAssetRegistry.sol";
-import "@storyprotocol/contracts/contracts/resolvers/IPResolver.sol";
-import "@storyprotocol/contracts/contracts/lib/IP.sol";
+import "@story-protocol/core/contracts/registries/IPAssetRegistry.sol";
+import "@story-protocol/core/contracts/lib/IP.sol";
+import "@story-protocol/core/contracts/resolvers/IPResolver.sol";
 import "./interface/IModelNFT.sol";
 
 contract ExampleIPARemixRegistration {
