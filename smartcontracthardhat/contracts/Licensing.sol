@@ -1,3 +1,6 @@
+// SPDX-license-identifier: MIT
+pragma solidity ^0.8.23;
+
 import "@storyprotocol/contracts/contracts/modules/licensing/LicensingModule.sol";
 import "@storyprotocol/periphery/contracts/StoryProtocolGateway.sol";
 import "@storyprotocol/contracts/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
