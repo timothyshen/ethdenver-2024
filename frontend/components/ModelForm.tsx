@@ -3,41 +3,49 @@ import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ModelProps } from '@/types';
+import { useAccount } from 'wagmi';
 
-export const ModelForm = () => {
-    // State initialization
-    const [model, setModel] = useState<ModelProps>({ name: '', numParam: '' });
+interface MintModelNFTProps {
+    modelData: ModelProps;
+    setModel: React.Dispatch<React.SetStateAction<ModelProps>>;
+}
+
+export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel }) => {
+
 
     // Handlers for input changes
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setModel({ ...model, name: e.target.value });
+        setModel({ ...modelData, name: e.target.value });
     };
 
     const handleNumParamChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setModel({ ...model, numParam: e.target.value });
+        setModel({ ...modelData, numParam: e.target.value });
     };
 
     return (
         <>
-            <h1>Model Information</h1>
+            <div className='my-2'>
+                <Label htmlFor="name">Name</Label>
+                <Input
+                    id="name"
+                    type="text"
+                    placeholder="Model Name"
+                    value={modelData.name}
+                    onChange={handleNameChange}
+                />
+            </div>
 
-            <Label htmlFor="name">Name</Label>
-            <Input
-                id="name"
-                type="text"
-                placeholder="Model Name"
-                value={model.name}
-                onChange={handleNameChange}
-            />
+            <div className='my-2'>
+                <Label htmlFor="numParam">NumParam</Label>
+                <Input
+                    id="numParam"
+                    type="text"
+                    placeholder="Num Param"
+                    value={modelData.numParam}
+                    onChange={handleNumParamChange}
+                />
+            </div>
 
-            <Label htmlFor="numParam">NumParam</Label>
-            <Input
-                id="numParam"
-                type="text"
-                placeholder="Num Param"
-                value={model.numParam}
-                onChange={handleNumParamChange}
-            />
         </>
     );
 };

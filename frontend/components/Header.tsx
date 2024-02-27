@@ -1,10 +1,8 @@
 import React from 'react';
 // Assuming Shadn UI has similar components, replace these with actual imports
-import { Button } from './ui/button';
 
 import { ConnectKitButton } from 'connectkit';
 
-import NextLink from "next/link";
 
 
 

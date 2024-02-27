@@ -818,6 +818,14 @@
     "@openzeppelin/contracts-upgradeable" "5.0.1"
     erc6551 "^0.3.1"
 
+"@story-protocol/periphery-ryon@https://github.com/ryonzhang/protocol-periphery#main":
+  version "1.0.0"
+  resolved "https://github.com/ryonzhang/protocol-periphery#da3e29311f9c588fb1dfacbd1883e002847cb733"
+  dependencies:
+    "@openzeppelin/contracts" "5.0.1"
+    "@openzeppelin/contracts-upgradeable" "5.0.1"
+    "@storyprotocol/contracts" "https://github.com/storyprotocol/protocol-core#main"
+
 "@story-protocol/periphery@https://github.com/storyprotocol/protocol-periphery#main":
   version "1.0.0"
   resolved "https://github.com/storyprotocol/protocol-periphery#7cba00791aee096e6444b28ebf0549bb9687e8ec"

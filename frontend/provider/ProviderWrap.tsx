@@ -1,25 +1,20 @@
-'use client'
-import React from 'react';
-import { WagmiProvider } from 'wagmi';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { config } from "@/provider/config"
+"use client"
+import { WagmiProvider } from "wagmi";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ConnectKitProvider } from "connectkit";
+import { ReactNode } from "react";
+import { config } from "./client";
+
 
 
 const queryClient = new QueryClient();
 
-interface WagmiProviderProps {
-  children: React.ReactNode;
-}
-
-const ProviderWrap = ({ children }: WagmiProviderProps) => {
+export function Web3Providers(props: { children: ReactNode }) {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        {children}
+        <ConnectKitProvider>{props.children}</ConnectKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
-};
-
-
-export default ProviderWrap;
+}
