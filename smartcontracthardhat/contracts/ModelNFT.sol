@@ -8,7 +8,7 @@ import "./interface/IModelNFT.sol";
 contract ModelNFT is ERC721Enumerable, Ownable, IModelNFT {
     mapping(uint256 => ModelInfo) private _modelInfos;
 
-    constructor(string memory name, string memory symbol) ERC721(name, symbol) {}
+    constructor(string memory name, string memory symbol) ERC721(name, symbol) Ownable(msg.sender){}
 
     function mintWithModelInfo(address to, uint256 tokenId, ModelInfo memory modelInfo) public override onlyOwner {
         _mint(to, tokenId);
@@ -16,12 +16,15 @@ contract ModelNFT is ERC721Enumerable, Ownable, IModelNFT {
     }
 
     function _setModelInfo(uint256 tokenId, ModelInfo memory modelInfo) internal {
-        require(_exists(tokenId), "ERC721Metadata: ModelInfo set of nonexistent token");
+        //_exists not exist
+        // require(_exists(tokenId), "ERC721Metadata: ModelInfo set of nonexistent token");
         _modelInfos[tokenId] = modelInfo;
     }
 
     function getModelInfo(uint256 tokenId) public view returns (ModelInfo memory) {
-        require(_exists(tokenId), "ERC721Metadata: Query for nonexistent token");
+        //_exists not exist
+        // require(_exists(tokenId), "ERC721Metadata: Query for nonexistent token");
         return _modelInfos[tokenId];
     }
+
 }

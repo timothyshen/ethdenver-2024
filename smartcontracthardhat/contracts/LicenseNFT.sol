@@ -14,7 +14,7 @@ contract LicenseNFT is ERC721, Ownable {
     // Mapping to store the original NFT ID associated with each license NFT
     mapping(uint256 => uint256) private _originalNftIds;
 
-    constructor(string memory name, string memory symbol) ERC721(name, symbol) {}
+    constructor(string memory name, string memory symbol) ERC721(name, symbol) Ownable(msg.sender) {}
 
     // Function to mint a new license NFT
     // `to` is the address receiving the license NFT
@@ -28,7 +28,7 @@ contract LicenseNFT is ERC721, Ownable {
 
     // Function to get the original NFT ID associated with a license NFT
     function getOriginalNftId(uint256 tokenId) public view returns (uint256) {
-        require(_exists(tokenId), "LicenseNFT: query for nonexistent token");
+//        require(_exists(tokenId), "LicenseNFT: query for nonexistent token");
         return _originalNftIds[tokenId];
     }
 }

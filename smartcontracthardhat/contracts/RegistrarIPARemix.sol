@@ -9,7 +9,7 @@ import "./interface/IModelNFT.sol";
 contract ExampleIPARemixRegistration {
    
   uint256 public constant MIN_ROYALTY = 10;
-  
+  bytes ROYALTY_CONTEXT = "This is loyalty fee for the license.";
   IPResolver public resolver;
   IPAssetRegistry public immutable REGISTRY;
   
@@ -19,30 +19,28 @@ contract ExampleIPARemixRegistration {
   }
   
   function remix(
-  	    uint256[] licenseIds,
+  	    uint256[] calldata licenseIds,
   	    address tokenContract, 
         uint256 tokenId
-	) {
+	) public{
       bytes memory metadata = abi.encode(
         IP.MetadataV1({
           name: "name for your IP asset",
           hash:  bytes32("your IP asset content hash"),
           registrationDate: uint64(block.timestamp),
           registrant: msg.sender,
-          uri: "https://yourip.xyz/metadata-regarding-its-ip",
+          uri: "https://yourip.xyz/metadata-regarding-its-ip"
         })
       );
 
-      uint256 ipId = REGISTRY.register(
-        licenses,
-        ROYALTY_CONTEXT,
-        block.chainid,
+      address ipAddress = REGISTRY.register(
+      //TODO: change to chain id
+        1,
         tokenContract,
         tokenId,
         address(resolver),
         true,
         metadata
       );
-
   }
 }

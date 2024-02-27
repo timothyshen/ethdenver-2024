@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-interface IModelNFT {
+import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
+
+interface IModelNFT is IERC721Enumerable{
     struct ModelInfo {
         address creator;
         string createdAt;

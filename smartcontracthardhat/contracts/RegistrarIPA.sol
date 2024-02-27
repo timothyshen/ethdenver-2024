@@ -41,6 +41,6 @@ contract IPARegistrar {
             })
         );
 
-        return IPA_REGISTRY.register(block.chainId, address(NFT), tokenId, IP_RESOLVER, true, metadata);
+        return IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata);
     }
 }
