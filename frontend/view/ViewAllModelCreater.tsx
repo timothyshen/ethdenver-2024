@@ -10,7 +10,6 @@ export const ViewAllModelCreator = () => {
 
     return (
         <div>
-            <h1>View All Models Created by {address}</h1>
             <div className='grid grid-cols-3 gap-4'>
                 {sampleNFTDataset.map((NFTMetaData, index) => {
                     return (

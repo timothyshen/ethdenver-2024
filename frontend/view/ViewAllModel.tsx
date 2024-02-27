@@ -5,7 +5,6 @@ import { sampleNFTDataset } from '@/lib/sampleDataset'
 export const ViewAllModel = () => {
     return (
         <div>
-            <h1>View All Models</h1>
             <div className='grid grid-cols-3 gap-4'>
                 {sampleNFTDataset.map((NFTMetaData, index) => {
                     return (
