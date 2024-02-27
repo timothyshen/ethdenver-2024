@@ -3,6 +3,6 @@ import { Button } from './ui/button'
 
 export const RegisterNFTModel = () => {
     return (
-        <div>RegisterNFTModel</div>
+        <Button variant='default'>Register NFT Model</Button>
     )
 }

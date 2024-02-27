@@ -10,17 +10,24 @@ import {
 
 import React from 'react'
 import { ModelNFTProps } from '@/types'
+import { RegisterNFTModel } from './RegisterNFTButton'
+import { LicenseNFTModel } from './LicenseNFTButton'
+import { CreateLicenseNFT } from "./CreateLicenseButton"
+
+type NFTShowCaseProps = {
+    NFTMetaData: ModelNFTProps;
+    isCreator: boolean;
+}
 
 
-
-export const NFTShowCase = (NFTMetaData: ModelNFTProps) => {
+export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
 
     const sliceAddress = (address: string) => {
         return address.slice(0, 6) + '...' + address.slice(-4);
     }
 
     return (
-        <Card>
+        <Card className="m-2">
             <CardHeader>
                 <CardTitle>{NFTMetaData.modelName}</CardTitle>
                 <CardDescription>Created by {sliceAddress(NFTMetaData.creator)}</CardDescription>
@@ -30,7 +37,13 @@ export const NFTShowCase = (NFTMetaData: ModelNFTProps) => {
                 <div>Num Params: {NFTMetaData.numParams}</div>
             </CardContent>
             <CardFooter>
-                <div className='text-red-500'>NFT Showcase</div>
+                {isCreator ? (
+                    <div className="space-x-3">
+                        <RegisterNFTModel />
+                        <CreateLicenseNFT />
+                    </div>) : (
+                    <LicenseNFTModel />
+                )}
             </CardFooter>
         </Card>
     )

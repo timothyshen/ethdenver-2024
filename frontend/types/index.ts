@@ -1,6 +1,7 @@
 export type ModelProps = {
   name: string;
   numParam: string;
+  parentID?: string;
 };
 
 export type ModelNFTProps = {

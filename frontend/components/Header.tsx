@@ -11,7 +11,7 @@ export function Header() {
         <div className="w-100vw bg-gray-50 border-b">
             <div className="flex flex-col items-center p-8 gap-3 max-w-4xl mx-auto">
                 <h1>
-                    Make NFT Story
+                    Make AI Bot NFT
                 </h1>
                 <ConnectKitButton />
 
