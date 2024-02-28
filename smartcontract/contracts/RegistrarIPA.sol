@@ -13,15 +13,14 @@ contract IPARegistrar {
     constructor(
         address ipAssetRegistry,
         address resolver,
-        IModelNFT nft
+        address nft
     ) {
         IPA_REGISTRY = IPAssetRegistry(ipAssetRegistry);
         IP_RESOLVER = resolver;
-        NFT = nft;
+        NFT = IModelNFT(nft);
     }
 
     function register(string memory ipName, string memory createdAt, string memory numParams, string memory modelName) external returns (address) {
-        uint256 tokenId = NFT.totalSupply() + 1; // Assuming token IDs are sequential starting from 1
         IModelNFT.ModelInfo memory modelInfo = IModelNFT.ModelInfo({
             creator: msg.sender,
             createdAt: createdAt,
@@ -29,7 +28,7 @@ contract IPARegistrar {
             modelName: modelName
         });
 
-        NFT.mintWithModelInfo(msg.sender, tokenId, modelInfo);
+        uint tokenId = NFT.mintWithModelInfo(msg.sender, modelInfo);
 
         bytes memory metadata = abi.encode(
             IP.MetadataV1({

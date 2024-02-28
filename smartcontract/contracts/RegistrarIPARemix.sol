@@ -22,7 +22,7 @@ contract ExampleIPARemixRegistration {
   	    uint256[] calldata licenseIds,
   	    address tokenContract, 
         uint256 tokenId
-	) public{
+	) public returns (address){
       bytes memory metadata = abi.encode(
         IP.MetadataV1({
           name: "name for your IP asset",
@@ -42,5 +42,6 @@ contract ExampleIPARemixRegistration {
         true,
         metadata
       );
+      return ipAddress;
   }
 }
