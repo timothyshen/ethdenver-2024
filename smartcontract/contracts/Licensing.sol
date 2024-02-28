@@ -1,12 +1,8 @@
 // SPDX-license-identifier: MIT
 pragma solidity ^0.8.23;
 
-import "@storyprotocol/contracts/contracts/modules/licensing/LicensingModule.sol";
 import "@storyprotocol/periphery/contracts/StoryProtocolGateway.sol";
-import "@storyprotocol/contracts/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
-import "@storyprotocol/contracts/contracts/registries/IPAssetRegistry.sol";
 
-// This is the licensing contract for the IPA
 
 contract ModelNFTLiecnse{
    
@@ -16,8 +12,8 @@ contract ModelNFTLiecnse{
     uint256 public MINTING_FEE;
     address public MINTING_FEE_TOKEN;
   
-    constructor(address spg, address royaltyPolicy, uint256 mintingFee, uint256 mintingFeeToken) {
-        SPG = spg;
+    constructor(address spg, address royaltyPolicy, uint256 mintingFee, address mintingFeeToken) {
+        SPG = StoryProtocolGateway(spg);
         ROYALTY_POLICY = royaltyPolicy;
         MINTING_FEE = mintingFee;
         MINTING_FEE_TOKEN = mintingFeeToken;
@@ -26,7 +22,7 @@ contract ModelNFTLiecnse{
     function createLicense(
   	    PILPolicy memory pilPolicy,
         address licensorIpId
-	) {
-        spg.mintLicensePIL(pilPolicy, licensorIpId, 1, ROYATY_CONTEXT, MINTING_FEE, MINTING_FEE_TOKNE);
+	) public{
+        SPG.mintLicensePIL(pilPolicy, licensorIpId, 1, ROYALTY_CONTEXT,false,ROYALTY_POLICY, MINTING_FEE, MINTING_FEE_TOKEN);
     }
 }

@@ -5,8 +5,6 @@ import "@story-protocol/core/contracts/registries/IPAssetRegistry.sol";
 import "@story-protocol/core/contracts/lib/IP.sol";
 import "./interface/IModelNFT.sol";
 
-// This is the registrar contract for the IP Assets
-
 contract IPARegistrar {
     IModelNFT public immutable NFT;
     address public immutable IP_RESOLVER;
@@ -43,6 +41,6 @@ contract IPARegistrar {
             })
         );
 
-        return IPA_REGISTRY.register(block.chainId, address(NFT), tokenId, IP_RESOLVER, true, metadata);
+        return IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata);
     }
 }
