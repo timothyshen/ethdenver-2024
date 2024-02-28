@@ -13,12 +13,12 @@ export async function getModelInfoByTokenId(tokenId: number) {
   return getModelInfo;
 }
 
-export async function getModelInfoList() {
-  const getModelInfoList = await client.readContract({
+export async function getAllModelInfo() {
+  const getAllModelInfo = await client.readContract({
     abi: ModelNFT.abi,
-    functionName: "getModelInfoList",
+    functionName: "getAllModelInfo",
     address: MODEL_NFT_ADDRESS,
   });
-  console.log("getModelInfoList", getModelInfoList);
-  return getModelInfoList;
+  console.log("getAllModelInfo", getAllModelInfo);
+  return getAllModelInfo;
 }
