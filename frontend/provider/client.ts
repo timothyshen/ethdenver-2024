@@ -8,9 +8,9 @@ export const client = createPublicClient({
   transport: http(),
 });
 
-//@ts-ignore
 export const walletClient = createWalletClient({
   chain: sepolia,
+  //@ts-ignore
   transport: custom(window?.ethereum),
 });
 
@@ -23,8 +23,8 @@ export const config = createConfig(
     walletConnectProjectId: "",
 
     // Optional App Info
-    appDescription: "Your App Description",
-    appUrl: "https://family.co", // your app's url
+    appDescription: "FLock Model NFT Minting App",
+    appUrl: "https://flock.io", // your app's url
     appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );

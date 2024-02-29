@@ -3,7 +3,7 @@ pragma solidity ^0.8.23;
 
 import "@storyprotocol/periphery/contracts/StoryProtocolGateway.sol";
 
-contract ExampleIPAPolicyCreation {
+contract IPAPolicyCreation {
    
   StoryProtocolGateway public SPG;
   address public ROYALTY_POLICY;

@@ -6,7 +6,7 @@ import "@story-protocol/core/contracts/lib/IP.sol";
 import "@story-protocol/core/contracts/resolvers/IPResolver.sol";
 import "./interface/IModelNFT.sol";
 
-contract ExampleIPARemixRegistration {
+contract IPARemixRegistrar {
    
   uint256 public constant MIN_ROYALTY = 10;
   bytes ROYALTY_CONTEXT = "This is loyalty fee for the license.";
@@ -34,8 +34,7 @@ contract ExampleIPARemixRegistration {
       );
 
       address ipAddress = REGISTRY.register(
-      //TODO: change to chain id
-        1,
+        block.chainid,
         tokenContract,
         tokenId,
         address(resolver),

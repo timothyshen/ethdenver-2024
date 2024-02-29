@@ -2,6 +2,8 @@
 pragma solidity ^0.8.23;
 
 import "@story-protocol/core/contracts/registries/IPAssetRegistry.sol";
+import "@story-protocol/core/contracts/resolvers/IPResolver.sol";
+
 import "@story-protocol/core/contracts/lib/IP.sol";
 import "./interface/IModelNFT.sol";
 
@@ -28,7 +30,7 @@ contract IPARegistrar {
             modelName: modelName
         });
 
-        uint tokenId = NFT.mintWithModelInfo(msg.sender, modelInfo);
+        uint256 tokenId = NFT.mintWithModelInfo(msg.sender, modelInfo);
 
         bytes memory metadata = abi.encode(
             IP.MetadataV1({
