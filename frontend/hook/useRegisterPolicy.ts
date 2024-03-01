@@ -2,11 +2,12 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
 import { POLICYREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
+import { PolicyProps } from "@/types/index";
 
 export const useRegistrarIPRemix = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
-  const registerPolicy = async (pilPolicy: any) => {
+  const registerPolicy = async (pilPolicy: PolicyProps) => {
     try {
       const [account] = await walletClient.getAddresses();
 
