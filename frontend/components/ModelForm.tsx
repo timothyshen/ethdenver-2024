@@ -8,10 +8,10 @@ import { useAccount } from 'wagmi';
 interface MintModelNFTProps {
     modelData: ModelProps;
     setModel: React.Dispatch<React.SetStateAction<ModelProps>>;
-    isRemix?: boolean;
+
 }
 
-export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel, isRemix }) => {
+export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel }) => {
 
 
     // Handlers for input changes
@@ -46,17 +46,6 @@ export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel, is
                     onChange={handleNumParamChange}
                 />
             </div>
-
-            {isRemix && <div className='my-2'>
-                <Label htmlFor="numParam">Parent ID</Label>
-                <Input
-                    id="numParam"
-                    type="text"
-                    placeholder="Num Param"
-                    value={modelData.numParam}
-                    onChange={handleNumParamChange}
-                />
-            </div>}
         </>
     );
 };

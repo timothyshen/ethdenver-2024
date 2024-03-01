@@ -12,7 +12,6 @@ import React from 'react'
 import { ModelNFTProps } from '@/types'
 import { RegisterNFTModel } from './Button/RegisterNFTButton'
 import { LicenseNFTModel } from './Button/LicenseNFTButton'
-import { CreateLicenseNFT } from "./Button/CreateLicenseButton"
 import { MintRemixNFT } from "./Button/MintRemixNFTButton"
 import { PolicyModel } from "@/view/PolicyModel"
 
@@ -39,19 +38,7 @@ export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
                 <div>Num Params: {NFTMetaData.numParams}</div>
             </CardContent>
             <CardFooter>
-                {isCreator ? (
-                    <div className="space-x-3">
-                        <RegisterNFTModel />
-                        <CreateLicenseNFT />
-                        <PolicyModel />
-                    </div>) : (
-                    <div className="space-x-3">
-                        <LicenseNFTModel />
-                            <MintRemixNFT />
-                    </div>
 
-
-                )}
             </CardFooter>
         </Card>
     )

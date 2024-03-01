@@ -5,7 +5,7 @@ export type ModelProps = {
 };
 
 export type ModelNFTProps = {
-  creator: string;
+  creator: `0x${string}`;
   createdAt: string;
   numParams: string;
   modelName: string;

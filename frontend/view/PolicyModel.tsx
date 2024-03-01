@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog"
 import { CreatePolicy } from "@/components/CreatePolicy"
 import { CreatePolicyButton } from "@/components/Button/CreatePolicyButton"
+import { Button } from "@/components/ui/button"
 
 import React from 'react'
 
@@ -15,7 +16,7 @@ export const PolicyModel = () => {
     return (
         <Dialog>
             <DialogTrigger>
-                <CreatePolicyButton />
+                <Button variant="default">Create Policy and License</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
@@ -25,7 +26,7 @@ export const PolicyModel = () => {
                         and remove your data from our servers.
                     </DialogDescription>
                 </DialogHeader>
-                <CreatePolicy />
+                {/* <CreatePolicy /> */}
             </DialogContent>
         </Dialog>
 

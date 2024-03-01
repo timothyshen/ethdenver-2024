@@ -33,15 +33,11 @@ export const ViewModel = ({ title, description, isRemix }: ViewModelProps) => {
                 <CardDescription>{description}</CardDescription>
             </CardHeader>
             <CardContent>
-                <ModelForm modelData={model} setModel={setModel} isRemix={isRemix} />
+                <ModelForm modelData={model} setModel={setModel} />
             </CardContent>
             <CardFooter>
                 <div className='text-red-500'>{message}</div>
-                {isRemix ?
-                    <MintRemixNFT modelData={model} setMessage={setMessage} />
-                    :
-                    <MintModelNFT modelData={model} setMessage={setMessage} />
-                }
+                <MintModelNFT modelData={model} setMessage={setMessage} />
             </CardFooter>
         </Card>
     )

@@ -13,7 +13,6 @@ interface MintModelNFTProps {
 
 export const MintModelNFT: React.FC<MintModelNFTProps> = ({ modelData, setMessage }) => {
 
-    const { address } = useAccount();
     const { registerIP, isPending, isConfirming, isConfirmed, error } = useRegistrarIP();
 
 
@@ -28,6 +27,8 @@ export const MintModelNFT: React.FC<MintModelNFTProps> = ({ modelData, setMessag
             if (isConfirmed) {
                 setMessage('NFT Minted Successfully');
             }
+            console.log('isConfirmed', isConfirmed);
+            console.log(error);
         } catch (error) {
             console.error('error', error);
             setMessage('Error minting NFT');

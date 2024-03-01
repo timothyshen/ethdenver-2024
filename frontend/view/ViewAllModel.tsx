@@ -4,9 +4,14 @@ import { NFTShowCase } from '@/components/NFTShowCase'
 import { sampleNFTDataset } from '@/lib/sampleDataset'
 import { getAllModelInfo } from '@/contract/ModelNFTCOntract'
 
-export const ViewAllModel = () => {
+type ViewAllModelProps = {
+    setModel: React.Dispatch<React.SetStateAction<any>>;
+}
+
+export const ViewAllModel = ({ setModel }: ViewAllModelProps) => {
 
     const [NFTMetaData, setNFTMetaData] = useState<any[]>([])
+    
     useEffect(() => {
         async function fetchData() {
             const data = await getAllModelInfo()

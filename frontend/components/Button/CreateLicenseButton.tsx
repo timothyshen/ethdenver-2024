@@ -3,6 +3,6 @@ import { Button } from '../ui/button'
 
 export const CreateLicenseNFT = () => {
     return (
-        <Button variant='default'>Create License NFT</Button>
+        <Button variant='default'>Mint License NFT</Button>
     )
 }
