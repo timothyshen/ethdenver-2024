@@ -11,7 +11,6 @@ import {
 import React from 'react'
 import { ModelNFTProps } from '@/types'
 import { RegisterNFTModel } from './Button/RegisterNFTButton'
-import { LicenseNFTModel } from './Button/LicenseNFTButton'
 import { MintRemixNFT } from "./Button/MintRemixNFTButton"
 import { PolicyModel } from "@/view/PolicyModel"
 

@@ -18,9 +18,9 @@ contract LicenseNFT is ERC721, Ownable {
     // Function to mint a new license NFT
     // `to` is the address receiving the license NFT
     // `originalNftId` is the ID of the original NFT for which the license is being granted
-    function mint(address to, uint256 originalNftId) public onlyOwner {
+    function mint(address to) public onlyOwner {
         uint256 tokenId = _tokenIdCounter++;
         _mint(to, tokenId);
-        emit LicenseMinted(tokenId, to, originalNftId);
+        emit LicenseMinted(tokenId, to, tokenId);
     }
 }

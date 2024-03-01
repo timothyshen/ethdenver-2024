@@ -12,7 +12,6 @@ contract IPARegistrar {
     address public immutable IP_RESOLVER;
     IPAssetRegistry public immutable IPA_REGISTRY;
 
-    mapping(uint256 => ModelInfo) private _modelInfos;
     mapping(uint256 => TokenModelInfo) private _tokenModelInfos;
 
     struct ModelInfo {
@@ -24,6 +23,8 @@ contract IPARegistrar {
 
     struct TokenModelInfo {
         uint256 tokenId;
+        address owner;
+        address ipId;
         ModelInfo modelInfo;
     }
 
@@ -52,8 +53,6 @@ contract IPARegistrar {
             modelName: modelName
         });
 
-        _modelInfos[_tokenIdCounter] = modelInfo;
-        _tokenModelInfos[_tokenIdCounter] = TokenModelInfo(_tokenIdCounter, modelInfo);
         
         uint256 tokenId = NFT.mintWithModelInfo(msg.sender);
 
@@ -67,16 +66,23 @@ contract IPARegistrar {
             })
         );
 
-        return IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata); 
+        address ipID = IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata);
+
+        TokenModelInfo memory tokenModelInfo = TokenModelInfo({
+            tokenId: tokenId,
+            owner: msg.sender,
+            ipId: ipID,
+            modelInfo: modelInfo
+        });
+
+        _tokenModelInfos[tokenId] = tokenModelInfo;
+
+        return ipID;
     }
 
-    function _setModelInfo(uint256 tokenId, ModelInfo memory modelInfo) internal {
 
-        _modelInfos[tokenId] = modelInfo;
-    }
-
-    function getModelInfo(uint256 tokenId) public view returns (ModelInfo memory) {
-        return _modelInfos[tokenId];
+    function getModelInfo(uint256 tokenId) public view returns (TokenModelInfo memory) {
+        return _tokenModelInfos[tokenId];
     }
 
     function getAllModelInfo() public view returns (TokenModelInfo[] memory) {
@@ -84,8 +90,8 @@ contract IPARegistrar {
         TokenModelInfo[] memory modelsInfo = new TokenModelInfo[](totalSupply);
         for (uint256 i = 0; i < totalSupply; i++) {
             uint256 tokenId = NFT.getTokenByIndex(i);
-            ModelInfo memory modelInfo = getModelInfo(tokenId);
-            modelsInfo[i] = TokenModelInfo(tokenId, modelInfo);
+            TokenModelInfo memory modelInfo = getModelInfo(tokenId);
+            modelsInfo[i] = modelInfo;
         }
         return modelsInfo;
     }
