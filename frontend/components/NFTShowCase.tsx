@@ -14,7 +14,7 @@ import { RegisterNFTModel } from './Button/RegisterNFTButton'
 import { LicenseNFTModel } from './Button/LicenseNFTButton'
 import { CreateLicenseNFT } from "./Button/CreateLicenseButton"
 import { CreateRemixButton } from "./Button/CreateRemixButton"
-import { CreatePolicyButton } from "./Button/CreatePolicyButton"
+import { PolicyModel } from "@/view/PolicyModel"
 
 type NFTShowCaseProps = {
     NFTMetaData: ModelNFTProps;
@@ -43,7 +43,7 @@ export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
                     <div className="space-x-3">
                         <RegisterNFTModel />
                         <CreateLicenseNFT />
-                        <CreatePolicyButton />
+                        <PolicyModel />
                     </div>) : (
                     <div className="space-x-3">
                         <LicenseNFTModel />
