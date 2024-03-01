@@ -1,9 +1,9 @@
 // MintRemixNFT.tsx
 import React from 'react';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import { ModelProps } from '@/types';
 import { useAccount } from 'wagmi';
-import { useRegistrarIPRemix } from '@/hook/useRemixNFTHook';
+import { useRegistrarIPRemix } from '@/hook/useRegistrarIPRemix';
 
 interface MintRemixNFTProps {
     modelData: ModelProps;

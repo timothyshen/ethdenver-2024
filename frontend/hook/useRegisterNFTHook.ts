@@ -4,7 +4,7 @@ import { IPAREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 import { config } from "@/provider/client";
 
-export const useMintLicenseNFTMint = () => {
+export const useRegistrarIP = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
   const registerIP = async (

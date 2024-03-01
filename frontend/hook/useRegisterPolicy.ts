@@ -4,7 +4,7 @@ import { POLICYREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 import { PolicyProps } from "@/types/index";
 
-export const useRegistrarIPRemix = () => {
+export const useRegisterPolicy = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
   const registerPolicy = async (pilPolicy: PolicyProps) => {

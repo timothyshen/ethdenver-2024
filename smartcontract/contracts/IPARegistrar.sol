@@ -41,6 +41,8 @@ contract IPARegistrar {
         NFT = IModelNFT(nft);
     }
 
+
+    //Return the tba IPID
     function register(string memory ipName, string memory createdAt, string memory numParams, string memory modelName) external returns (address) {
      
         ModelInfo memory modelInfo = ModelInfo({
@@ -65,7 +67,7 @@ contract IPARegistrar {
             })
         );
 
-        return IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata);
+        return IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata); 
     }
 
     function _setModelInfo(uint256 tokenId, ModelInfo memory modelInfo) internal {

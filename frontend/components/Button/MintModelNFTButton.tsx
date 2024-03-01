@@ -1,7 +1,7 @@
 // MintModelNFT.tsx
 'use client'
 import React from 'react';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import { ModelProps } from '@/types';
 import { useAccount } from 'wagmi';
 import { useRegistrarIP } from '@/hook/useRegisterNFTHook';

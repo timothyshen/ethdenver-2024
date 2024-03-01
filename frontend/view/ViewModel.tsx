@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
-import { MintModelNFT } from '@/components/MintModelNFTButton'
-import { MintRemixNFT } from '@/components/MintRemixNFTButton'
+import { MintModelNFT } from '@/components/Button/MintModelNFTButton'
+import { MintRemixNFT } from '@/components/Button/MintRemixNFTButton'
 import { ModelForm } from '@/components/ModelForm'
 import { ModelProps } from '@/types'
 

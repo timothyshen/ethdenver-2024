@@ -10,7 +10,6 @@ export const client = createPublicClient({
 
 export const walletClient = createWalletClient({
   chain: sepolia,
-  //@ts-ignore
   transport: custom(window?.ethereum),
 });
 
@@ -28,4 +27,3 @@ export const config = createConfig(
     appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );
-

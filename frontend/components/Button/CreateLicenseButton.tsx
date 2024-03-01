@@ -1,9 +1,7 @@
 import React from 'react'
-import { Button } from './ui/button'
+import { Button } from '../ui/button'
 
-export const CreatePolicyButton = () => {
-
-    
+export const CreateLicenseNFT = () => {
     return (
         <Button variant='default'>Create License NFT</Button>
     )

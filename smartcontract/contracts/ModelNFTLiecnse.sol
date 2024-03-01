@@ -21,6 +21,7 @@ contract ModelNFTLiecnse{
   
     function createLicense(
   	    PILPolicy memory pilPolicy,
+        // Token Bound Account IPID
         address licensorIpId
 	) public{
         SPG.mintLicensePIL(pilPolicy, licensorIpId, 1, ROYALTY_CONTEXT,false,ROYALTY_POLICY, MINTING_FEE, MINTING_FEE_TOKEN);

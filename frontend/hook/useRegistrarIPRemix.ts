@@ -1,23 +1,24 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import ModelNFTLiecnse from "@/contract/abi/ModelNFTLiecnse.json";
-import { LICENSINGREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import IPARegstrar from "@/contract/abi/IPARegistrar.json";
+import { IPAREMIXREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 
 export const useRegistrarIPRemix = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
-  const purchaseLicence = async (
-    pilPolicy: any,
-    licensorIpId: `0x${string}`
+  const registerIPRemix = async (
+    licenseIds: BigInt[],
+    tokenContract: `0x${string}`,
+    tokenId: BigInt
   ) => {
     try {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: LICENSINGREGISTRAR_ADDRESS,
-        abi: ModelNFTLiecnse.abi,
-        functionName: "createLicense",
-        args: [pilPolicy, licensorIpId],
+        address: IPAREMIXREGISTRAR_ADDRESS,
+        abi: IPARegstrar.abi,
+        functionName: "remix",
+        args: [licenseIds, tokenContract, tokenId],
         account: account,
       });
     } catch (error) {
@@ -31,7 +32,7 @@ export const useRegistrarIPRemix = () => {
     });
 
   return {
-    purchaseLicence,
+    registerIPRemix,
     isPending,
     isConfirming,
     isConfirmed,

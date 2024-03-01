@@ -27,6 +27,7 @@ contract IPAPolicyCreation {
   
   function addPolicyToIPA(
   	PILPolicy memory pilPolicy,
+    // Token Bound A IPID
     address ipId
   ) public{
       SPG.addPILPolicyToIp(pilPolicy, true, ROYALTY_POLICY, MINTING_FEE, MINTING_FEE_TOKEN, ipId);
