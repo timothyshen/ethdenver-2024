@@ -13,7 +13,7 @@ contract IPARegistrar {
     IPAssetRegistry public immutable IPA_REGISTRY;
 
     mapping(uint256 => ModelInfo) private _modelInfos;
-
+    mapping(uint256 => TokenModelInfo) private _tokenModelInfos;
 
     struct ModelInfo {
         address creator;
@@ -49,6 +49,9 @@ contract IPARegistrar {
             numParams: numParams,
             modelName: modelName
         });
+
+        _modelInfos[_tokenIdCounter] = modelInfo;
+        _tokenModelInfos[_tokenIdCounter] = TokenModelInfo(_tokenIdCounter, modelInfo);
         
         uint256 tokenId = NFT.mintWithModelInfo(msg.sender);
 
