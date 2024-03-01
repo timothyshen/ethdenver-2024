@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { ModelProps } from '@/types';
 import { useAccount } from 'wagmi';
+import { useRegistrarIPRemix } from '@/hook/useRemixNFTHook';
 
 interface MintRemixNFTProps {
     modelData: ModelProps;
@@ -12,10 +13,7 @@ interface MintRemixNFTProps {
 export const MintRemixNFT: React.FC<MintRemixNFTProps> = ({ modelData, setMessage }) => {
 
     const { address } = useAccount();
-    const { registerIP, isPending, isConfirming, isConfirmed, error } = useRegistrarIP();
-
-
-
+    const { registerIPRemix, isPending, isConfirming, isConfirmed, error } = useRegistrarIPRemix();
 
     const onSubmit = async () => {
         // Implement minting logic here

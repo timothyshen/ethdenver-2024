@@ -1,26 +1,24 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import IPARemixRegistrar from "@/contract/abi/IPARemixRegistrar.json";
-import { IPAREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import IPARegstrar from "@/contract/abi/IPARegistrar.json";
+import { IPAREMIXREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
-import { config } from "@/provider/client";
 
-export const useMintLicenseNFTMint = () => {
+export const useRegistrarIPRemix = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
-  const registerIP = async (
-    ipName: string,
-    createdAt: string,
-    numParams: string,
-    modelName: string
+  const registerIPRemix = async (
+    licenseIds: BigInt[],
+    tokenContract: `0x${string}`,
+    tokenId: BigInt
   ) => {
     try {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: IPAREGISTRAR_ADDRESS,
-        abi: IPARemixRegistrar.abi,
-        functionName: "register",
-        args: [ipName, createdAt, numParams, modelName],
+        address: IPAREMIXREGISTRAR_ADDRESS,
+        abi: IPARegstrar.abi,
+        functionName: "remix",
+        args: [licenseIds, tokenContract, tokenId],
         account: account,
       });
     } catch (error) {
@@ -34,7 +32,7 @@ export const useMintLicenseNFTMint = () => {
     });
 
   return {
-    registerIP,
+    registerIPRemix,
     isPending,
     isConfirming,
     isConfirmed,

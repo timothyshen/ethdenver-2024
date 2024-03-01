@@ -1,26 +1,20 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import IPARemixRegistrar from "@/contract/abi/IPARemixRegistrar.json";
-import { IPAREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
+import { POLICYREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
-import { config } from "@/provider/client";
 
-export const useMintLicenseNFTMint = () => {
+export const useRegistrarIPRemix = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
-  const registerIP = async (
-    ipName: string,
-    createdAt: string,
-    numParams: string,
-    modelName: string
-  ) => {
+  const addPolicy = async (pilPolicy: any, ipId: `0x${string}`) => {
     try {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: IPAREGISTRAR_ADDRESS,
-        abi: IPARemixRegistrar.abi,
-        functionName: "register",
-        args: [ipName, createdAt, numParams, modelName],
+        address: POLICYREGISTRAR_ADDRESS,
+        abi: IPAPolicyCreation.abi,
+        functionName: "addPolicyToIPA",
+        args: [pilPolicy, ipId],
         account: account,
       });
     } catch (error) {
@@ -34,7 +28,7 @@ export const useMintLicenseNFTMint = () => {
     });
 
   return {
-    registerIP,
+    addPolicy,
     isPending,
     isConfirming,
     isConfirmed,
