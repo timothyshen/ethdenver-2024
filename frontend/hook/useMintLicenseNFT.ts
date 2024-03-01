@@ -1,20 +1,20 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import LicenseNFT from "@/contract/abi/LicenseNFT.json";
-import { LICENCE_NFT_ADDRESS } from "@/contract/contractAddress";
+import ModelNFTLiecnse from "@/contract/abi/ModelNFTLiecnse.json";
+import { LICENSINGREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 
 export const useMintLicenseNFT = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
-  const mintLicense = async (pilPolicy: any, licensorIpId: `0x${string}`) => {
+  const mintLicense = async () => {
     try {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: LICENCE_NFT_ADDRESS,
-        abi: LicenseNFT.abi,
-        functionName: "createLicense",
-        args: [pilPolicy, licensorIpId],
+        address: LICENSINGREGISTRAR_ADDRESS,
+        abi: ModelNFTLiecnse.abi,
+        functionName: "mintLicense",
+        args: [account],
         account: account,
       });
     } catch (error) {

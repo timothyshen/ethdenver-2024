@@ -4,11 +4,18 @@ export type ModelProps = {
   parentID?: string;
 };
 
-export type ModelNFTProps = {
+type ModelNFTProps = {
   creator: `0x${string}`;
   createdAt: string;
   numParams: string;
   modelName: string;
+};
+
+export type ModelNFTMetadataProps = {
+  tokenId: BigInt;
+  owner: `0x${string}`;
+  ipId: `0x${string}`;
+  modelInfo: ModelNFTProps;
 };
 
 export type PolicyProps = {

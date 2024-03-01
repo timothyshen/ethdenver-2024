@@ -1,17 +1,16 @@
 import React from 'react'
 import { Button } from '../ui/button'
-import { useCreateLicense } from '@/hook/useCreateLicense'
-import { PolicyProps } from '@/types'
+import { useMintLicenseNFT } from '@/hook/useMintLicenseNFT'
 
-export const LicenseCreate = ({ pilPolicy, tokenAccount }: { pilPolicy: PolicyProps, tokenAccount: `0x${string}` }) => {
+export const LicenseNFTMint = () => {
 
-    const { createLicense, isPending, isConfirming, isConfirmed, error } = useCreateLicense();
+    const { mintLicense, isPending, isConfirming, isConfirmed, error } = useMintLicenseNFT();
 
     const onSubmit = async () => {
         // Implement minting logic here
         console.log('Minting License NFT');
         try {
-            const res = createLicense(pilPolicy, tokenAccount);
+            const res = mintLicense();
             console.log('res', res);
             if (isConfirmed) {
                 console.log('License Created Successfully');
@@ -26,6 +25,8 @@ export const LicenseCreate = ({ pilPolicy, tokenAccount }: { pilPolicy: PolicyPr
     };
 
     return (
-        <Button onClick={onSubmit} variant='default'>Create License</Button>
+        <Button onClick={onSubmit} variant='default'>
+            {isConfirmed ? "Mint Complete" : "Mint License NFT"}
+        </Button>
     )
 }

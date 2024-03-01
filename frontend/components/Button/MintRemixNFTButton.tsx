@@ -14,7 +14,6 @@ interface MintRemixNFTProps {
 
 export const MintRemixNFT: React.FC<MintRemixNFTProps> = ({ licenseId, tokenAccount, tokenId, setMessage }) => {
 
-    const { address } = useAccount();
     const { registerIPRemix, isPending, isConfirming, isConfirmed, error } = useRegistrarIPRemix();
 
     const onSubmit = async () => {
