@@ -2024,7 +2024,7 @@
 "@story-protocol/core@https://github.com/storyprotocol/protocol-core#beta-rc5":
   version "v1.0.0-beta-rc6"
   resolved "git+ssh://git@github.com/storyprotocol/protocol-core.git"
-  integrity sha512-D7SMh9YM361EPz0CpahkSYLgMvrOVIsh45B7Q7gw33KgnZnozCiPGFQPIrpqelMmdr13DWbSBsBfv84M37okuA==
+  integrity sha512-sESOhOMPxxBgNAX1BpQogW2uVXlLJhFvCymBQy61ve0UlfSaiKIE4oEvgBAz0d+jTRi9mrxBtMRQ/9PTBBISKQ==
   dependencies:
     "@openzeppelin/contracts" "5.0.1"
     "@openzeppelin/contracts-upgradeable" "5.0.1"
@@ -2033,7 +2033,7 @@
 "@story-protocol/periphery@https://github.com/ryonzhang/protocol-periphery#main":
   version "1.0.0"
   resolved "git+ssh://git@github.com/ryonzhang/protocol-periphery.git"
-  integrity sha512-Cd2jU/HIPcJOQE6UXOfHpboTmZzz7RDX/71LlFZR6Pw0cx9RiwItbrday2VYpwRyPlfTUpprph2Cyg3DpsL85A==
+  integrity sha512-tOe5qaBnFnPsIdDrK/bpxH6ERePPxGjOBl137a6E7rk9UFwSdV6T4mAmMmwDU9S4+52V4FJPNvBx+sTBUvGXLw==
   dependencies:
     "@openzeppelin/contracts" "5.0.1"
     "@openzeppelin/contracts-upgradeable" "5.0.1"
@@ -2051,16 +2051,16 @@
 "@storyprotocol/contracts@https://github.com/storyprotocol/protocol-core#main":
   version "v1.0.0-beta-rc6"
   resolved "git+ssh://git@github.com/storyprotocol/protocol-core.git"
-  integrity sha512-D7SMh9YM361EPz0CpahkSYLgMvrOVIsh45B7Q7gw33KgnZnozCiPGFQPIrpqelMmdr13DWbSBsBfv84M37okuA==
+  integrity sha512-sESOhOMPxxBgNAX1BpQogW2uVXlLJhFvCymBQy61ve0UlfSaiKIE4oEvgBAz0d+jTRi9mrxBtMRQ/9PTBBISKQ==
   dependencies:
     "@openzeppelin/contracts" "5.0.1"
     "@openzeppelin/contracts-upgradeable" "5.0.1"
     erc6551 "^0.3.1"
 
 "@storyprotocol/periphery@https://github.com/storyprotocol/protocol-periphery#main":
-  version "v1.0.0-beta-rc1"
+  version "v1.0.0-beta-rc2"
   resolved "git+ssh://git@github.com/storyprotocol/protocol-periphery.git"
-  integrity sha512-PtKgbr9mBkh4EYYGCdd3tSBN9SDGf9h41jYJMZDxox/1KJtqh/UAbAsdKzJln9dgljRM5rAFlr/OYb/TnvHSSQ==
+  integrity sha512-q4Q4uIGopoff25ib5+YPCJSGqYRyjCQeOG01+jomh6bjpQ6xzF4qnq6KDp2ITLMQ8OOAU4uMGqGt8X0qABEtYQ==
   dependencies:
     "@openzeppelin/contracts" "5.0.1"
     "@openzeppelin/contracts-upgradeable" "5.0.1"
@@ -2545,10 +2545,10 @@ abitype@^0.9.8:
   resolved "https://registry.npmjs.org/abitype/-/abitype-0.9.10.tgz"
   integrity sha512-FIS7U4n7qwAT58KibwYig5iFG4K61rbhAqaQh/UWj8v1Y8mjX3F8TC9gd8cz9yT1TYel9f8nS5NO5kZp2RW0jQ==
 
-abitype@0.9.8:
-  version "0.9.8"
-  resolved "https://registry.npmjs.org/abitype/-/abitype-0.9.8.tgz"
-  integrity sha512-puLifILdm+8sjyss4S+fsUN09obiT1g2YW6CtcQF+QDzxR0euzgEB29MZujC6zMk2a6SVmtttq1fc6+YFA7WYQ==
+abitype@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/abitype/-/abitype-1.0.0.tgz"
+  integrity sha512-NMeMah//6bJ56H5XRj8QCV4AwuW6hB6zqz2LnhhLdcWVQOsXki6/Pn3APeqxCma62nXIcmZWdu1DlHWS74umVQ==
 
 abortcontroller-polyfill@^1.1.9, abortcontroller-polyfill@^1.7.3:
   version "1.7.5"
@@ -5746,7 +5746,8 @@ ethereum-waffle@*:
 
 ethereumjs-abi@^0.6.8, ethereumjs-abi@0.6.8, "ethereumjs-abi@git+https://github.com/ethereumjs/ethereumjs-abi.git":
   version "0.6.8"
-  resolved "git+ssh://git@github.com/ethereumjs/ethereumjs-abi.git#ee3994657fa7a427238e6ba92a84d0b529bbcde0"
+  resolved "git+ssh://git@github.com/ethereumjs/ethereumjs-abi.git"
+  integrity sha512-qs8G5KwnIO/thOQjv1RvR/4oiTsy6IaCsN+ory5dbiqFXz8sd239aWJH0wmsVNPimL5X1KzQheUpi6xAo6FU4w==
   dependencies:
     bn.js "^4.11.8"
     ethereumjs-util "^6.0.0"
@@ -11876,17 +11877,17 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-viem@^1.15.1:
-  version "1.21.4"
-  resolved "https://registry.npmjs.org/viem/-/viem-1.21.4.tgz"
-  integrity sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==
+viem@^1.15.1, viem@^2.7.15:
+  version "2.7.16"
+  resolved "https://registry.npmjs.org/viem/-/viem-2.7.16.tgz"
+  integrity sha512-yOPa9yaoJUm44m0Qe3ugHnkHol3QQlFxN3jT+bq+lQip7X7cWdPfmguyfLWX2viCXcmYZUDiQdeFbkPW9lw11Q==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
     "@noble/hashes" "1.3.2"
     "@scure/bip32" "1.3.2"
     "@scure/bip39" "1.2.1"
-    abitype "0.9.8"
+    abitype "1.0.0"
     isows "1.0.3"
     ws "8.13.0"
 

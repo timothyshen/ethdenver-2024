@@ -6,6 +6,9 @@ require("dotenv").config();
 
 const config: HardhatUserConfig = {
   solidity: "0.8.23",
+  etherscan: {
+    apiKey: "GC8SX5ATPASN4R1SS55FQ1RGDEQTP3PK72",
+  },
   networks: {
     sepolia: {
       url: `https://eth-sepolia.g.alchemy.com/v2/${

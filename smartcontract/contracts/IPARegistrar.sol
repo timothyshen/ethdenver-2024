@@ -12,6 +12,25 @@ contract IPARegistrar {
     address public immutable IP_RESOLVER;
     IPAssetRegistry public immutable IPA_REGISTRY;
 
+    mapping(uint256 => ModelInfo) private _modelInfos;
+
+
+    struct ModelInfo {
+        address creator;
+        string createdAt;
+        string numParams;
+        string modelName;
+    }
+
+    struct TokenModelInfo {
+        uint256 tokenId;
+        ModelInfo modelInfo;
+    }
+
+    event ModelNFTMint(uint256 indexed tokenId, address indexed to);
+
+    uint256 private _tokenIdCounter;
+
     constructor(
         address ipAssetRegistry,
         address resolver,
@@ -23,14 +42,15 @@ contract IPARegistrar {
     }
 
     function register(string memory ipName, string memory createdAt, string memory numParams, string memory modelName) external returns (address) {
-        IModelNFT.ModelInfo memory modelInfo = IModelNFT.ModelInfo({
+     
+        ModelInfo memory modelInfo = ModelInfo({
             creator: msg.sender,
             createdAt: createdAt,
             numParams: numParams,
             modelName: modelName
         });
-
-        uint256 tokenId = NFT.mintWithModelInfo(msg.sender, modelInfo);
+        
+        uint256 tokenId = NFT.mintWithModelInfo(msg.sender);
 
         bytes memory metadata = abi.encode(
             IP.MetadataV1({
@@ -43,5 +63,25 @@ contract IPARegistrar {
         );
 
         return IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata);
+    }
+
+    function _setModelInfo(uint256 tokenId, ModelInfo memory modelInfo) internal {
+
+        _modelInfos[tokenId] = modelInfo;
+    }
+
+    function getModelInfo(uint256 tokenId) public view returns (ModelInfo memory) {
+        return _modelInfos[tokenId];
+    }
+
+    function getAllModelInfo() public view returns (TokenModelInfo[] memory) {
+        uint256 totalSupply = NFT.getTotalSupply();
+        TokenModelInfo[] memory modelsInfo = new TokenModelInfo[](totalSupply);
+        for (uint256 i = 0; i < totalSupply; i++) {
+            uint256 tokenId = NFT.getTokenByIndex(i);
+            ModelInfo memory modelInfo = getModelInfo(tokenId);
+            modelsInfo[i] = TokenModelInfo(tokenId, modelInfo);
+        }
+        return modelsInfo;
     }
 }

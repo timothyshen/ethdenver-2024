@@ -25,6 +25,7 @@
     "@types/chai-as-promised": "^7.1.6",
     "@types/mocha": ">=9.1.0",
     "@types/sinon-chai": "^3.2.3",
+    "viem": "^2.7.15",
     "chai": "^4.2.0",
     "dotenv": "^16.4.5",
     "erc6551": "^0.3.1",
