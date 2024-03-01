@@ -7,12 +7,14 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { CreatePolicy } from "@/components/CreatePolicy"
-import { CreatePolicyButton } from "@/components/Button/CreatePolicyButton"
 import { Button } from "@/components/ui/button"
 
 import React from 'react'
+interface PolicyModelProps {
+    tokenAccount: `0x${string}`;
+}
 
-export const PolicyModel = () => {
+export const PolicyModel: React.FC<PolicyModelProps> = ({ tokenAccount }) => {
     return (
         <Dialog>
             <DialogTrigger>
@@ -26,7 +28,7 @@ export const PolicyModel = () => {
                         and remove your data from our servers.
                     </DialogDescription>
                 </DialogHeader>
-                {/* <CreatePolicy /> */}
+                <CreatePolicy tokenAccount={tokenAccount} />
             </DialogContent>
         </Dialog>
 

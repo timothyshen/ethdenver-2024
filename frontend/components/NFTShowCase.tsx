@@ -10,10 +10,9 @@ import {
 
 import React from 'react'
 import { ModelNFTMetadataProps } from '@/types'
-import { RegisterNFTModel } from './Button/RegisterNFTButton'
-import { MintRemixNFT } from "./Button/MintRemixNFTButton"
-import { PolicyModel } from "@/view/PolicyModel"
 import { LicenseNFTMint } from "./Button/LicenseNFTButton"
+import { RegisterNFTModel } from "./Button/RegisterNFTButton"
+import { PolicyModel } from "@/view/PolicyModel"
 
 type NFTShowCaseProps = {
     NFTMetaData: ModelNFTMetadataProps;
@@ -26,6 +25,8 @@ export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
     const sliceAddress = (address: string) => {
         return address.slice(0, 6) + '...' + address.slice(-4);
     }
+
+    const getTokenAccount = NFTMetaData.ipId
 
     return (
         <Card className="m-2">
@@ -41,7 +42,14 @@ export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
                 <div>Num Params: {NFTMetaData.modelInfo.numParams}</div>
             </CardContent>
             <CardFooter>
-                <LicenseNFTMint />
+                {isCreator ? (
+                    <PolicyModel tokenAccount={NFTMetaData.ipId} />
+                ) : (
+                    <div className="space-x-5">
+                        <LicenseNFTMint />
+                        <RegisterNFTModel />
+                    </div>
+                )}
             </CardFooter>
         </Card>
     )

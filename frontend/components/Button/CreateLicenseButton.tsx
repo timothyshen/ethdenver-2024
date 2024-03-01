@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 import { useCreateLicense } from '@/hook/useCreateLicense'
 import { PolicyProps } from '@/types'
 
-export const LicenseCreate = ({ pilPolicy, tokenAccount }: { pilPolicy: PolicyProps, tokenAccount: `0x${string}` }) => {
+export const CreateLicenseButton = ({ pilPolicy, tokenAccount }: { pilPolicy: PolicyProps, tokenAccount: `0x${string}` }) => {
 
     const { createLicense, isPending, isConfirming, isConfirmed, error } = useCreateLicense();
 

@@ -27,7 +27,7 @@ export const ViewAllModel = ({ setModel }: ViewAllModelProps) => {
     return (
         <div>
             <div className='grid grid-cols-3 gap-4'>
-                {NFTMetaData.map((nftItem, index) => {
+                {sampleNFTDataset.map((nftItem, index) => {
                     return (
                         <NFTShowCase
                             key={index}

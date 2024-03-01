@@ -27,6 +27,8 @@ export default function Home() {
           <div className="h-[300px] overflow-auto">
             <ViewAllModel setModel={setModel} />
           </div>
+
+          <h1>My Model Creation</h1>
           <div className="mt-5 h-[300px] overflow-auto">
             <ViewAllModelCreator />
           </div>
@@ -36,7 +38,10 @@ export default function Home() {
             <h1>Model Creation</h1>
             <ViewModel title="Create your model NFT" description="Log your IP rights" />
           </div>
-          <ViewModel title="Remix a model NFT" description="Create a new model based on an existing one" isRemix={true} />
+          <div>
+            <h1>Model Remix</h1>
+            <ViewModel title="Remix a model NFT" description="Create a new model based on an existing one" isRemix={true} />
+          </div>
         </div>
       </div>
 
