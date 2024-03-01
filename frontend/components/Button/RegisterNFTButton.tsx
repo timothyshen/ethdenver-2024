@@ -4,6 +4,9 @@ import { useAccount } from 'wagmi'
 
 
 export const RegisterNFTModel = () => {
+
+
+
     return (
         <Button variant='default'>Register NFT Model</Button>
     )

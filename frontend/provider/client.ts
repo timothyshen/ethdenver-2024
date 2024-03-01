@@ -13,6 +13,8 @@ export const walletClient = createWalletClient({
   transport: custom(window?.ethereum),
 });
 
+
+
 export const config = createConfig(
   getDefaultConfig({
     appName: "ConnectKit Next.js demo",

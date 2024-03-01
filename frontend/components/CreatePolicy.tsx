@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react'
 import { PolicyProps } from '@/types/index'
+import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription } from '@/components/ui/form'
+import { Switch } from '@/components/ui/switch'
+import { Button } from '@/components/ui/button'
 
 export const CreatePolicy = () => {
     const [policy, setPolicy] = useState<PolicyProps>({
@@ -35,50 +38,6 @@ export const CreatePolicy = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Attribution
-                <input
-                    name="attribution"
-                    type="checkbox"
-                    checked={policy.attribution}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                Commercial Use
-                <input
-                    name="commercialUse"
-                    type="checkbox"
-                    checked={policy.commercialUse}
-                    onChange={handleChange}
-                />
-            </label>
-            {/* Add more inputs for other boolean fields similarly */}
-
-            <label>
-                Commercializer Checker (Address)
-                <input
-                    name="commercializerChecker"
-                    type="text"
-                    value={policy.commercializerChecker}
-                    onChange={handleChange}
-                />
-            </label>
-            {/* Handle other string fields similarly */}
-
-            <label>
-                Commercial Revenue Share
-                <input
-                    name="commercialRevShare"
-                    type="number"
-                    value={policy.commercialRevShare}
-                    onChange={handleChange}
-                />
-            </label>
-            {/* Add inputs for array fields. You might need to use multi-select components or similar */}
-
-            <button type="submit">Submit Policy</button>
-        </form>
+        <div>dd</div>
     )
 }
