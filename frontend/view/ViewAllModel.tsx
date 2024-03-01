@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { NFTShowCase } from '@/components/NFTShowCase'
 import { sampleNFTDataset } from '@/lib/sampleDataset'
-import { getAllModelInfo } from '@/contract/ModelNFTCOntract'
+import { getAllModelInfo } from '@/contract/IPNFTContract'
 import { ModelNFTMetadataProps } from '@/types'
 
 type ViewAllModelProps = {
@@ -17,7 +17,7 @@ export const ViewAllModel = ({ setModel }: ViewAllModelProps) => {
         async function fetchData() {
             const data = await getAllModelInfo()
             console.log(data)
-            setNFTMetaData(data)
+            setNFTMetaData(data as ModelNFTMetadataProps[])
         }
         fetchData()
     }, [])

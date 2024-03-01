@@ -7,6 +7,7 @@ import { Button } from './ui/button';
 
 import { CreateLicenseButton } from "@/components/Button/CreateLicenseButton"
 import { CreatePolicyButton } from './Button/CreatePolicyButton';
+import { AddPolicyToIPAButton } from './Button/AddPolicyToIPAButton';
 
 interface PolicyModelProps {
     tokenAccount: `0x${string}`;
@@ -82,6 +83,7 @@ export const CreatePolicy: React.FC<PolicyModelProps> = ({ tokenAccount }) => {
                 <Button variant='default' type='submit'>Test</Button>
                 <CreateLicenseButton pilPolicy={policy} tokenAccount={tokenAccount} />
                 <CreatePolicyButton pilPolicy={policy} />
+                <AddPolicyToIPAButton pilPolicy={policy} tokenAccount={tokenAccount} />
             </div>
         </form>
     );

@@ -1,12 +1,12 @@
 import { client } from "@/provider/client";
-import ModelNFT from "./abi/ModelNFT.json";
-import { MODEL_NFT_ADDRESS } from "./contractAddress";
+import IPARemixRegistrar from "@/contract/abi/IPARemixRegistrar.json";
+import { IPAREGISTRAR_ADDRESS } from "@/contract/contractAddress";
 
 export async function getModelInfoByTokenId(tokenId: number) {
   const getModelInfo = await client.readContract({
-    abi: ModelNFT.abi,
+    abi: IPARemixRegistrar.abi,
     functionName: "getModelInfo",
-    address: MODEL_NFT_ADDRESS,
+    address: IPAREGISTRAR_ADDRESS,
     args: [BigInt(tokenId)],
   });
   console.log("getModelInfo", getModelInfo);
@@ -15,9 +15,9 @@ export async function getModelInfoByTokenId(tokenId: number) {
 
 export async function getAllModelInfo() {
   const getAllModelInfo = await client.readContract({
-    abi: ModelNFT.abi,
+    abi: IPARemixRegistrar.abi,
     functionName: "getAllModelInfo",
-    address: MODEL_NFT_ADDRESS,
+    address: IPAREGISTRAR_ADDRESS,
   });
   console.log("getAllModelInfo", getAllModelInfo);
   return getAllModelInfo;
