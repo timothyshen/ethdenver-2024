@@ -1,0 +1,2 @@
+@story-protocol/protocol-core=node_modules/@story-protocol/protocol-core/
+@story-protocol/protocol-periphery=node_modules/@story-protocol/protocol-periphery/

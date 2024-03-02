@@ -10,7 +10,7 @@ import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import { sepolia } from "viem/chains";
 
 const config = getDefaultConfig({
-  appName: 'My RainbowKit App',
+  appName: 'FLock Model IP',
   projectId: 'YOUR_PROJECT_ID',
   chains: [sepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
