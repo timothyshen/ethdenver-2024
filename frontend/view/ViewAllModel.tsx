@@ -18,6 +18,13 @@ export const ViewAllModel = () => {
         fetchData()
     }, [])
 
+    if (NFTMetaData.length === 0) {
+        return (
+            <div>
+                <h1>No record yet</h1>
+            </div>
+        )
+    }
 
     return (
         <div>
