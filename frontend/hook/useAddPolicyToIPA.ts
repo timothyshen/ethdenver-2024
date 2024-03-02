@@ -1,9 +1,13 @@
 "use client";
 
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
-import { POLICY_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
-import { PolicyProps } from "@/types/index";
+
+// TBA calls
+// import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
+// import { POLICY_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
+
+import { IPA_LICENSING_REGISTRY_ADDRESS } from "@/contract/contractAddress";
+import IPALicensing from "@/contract/abi/LicenseModule.json";
 
 import { useContext } from "react";
 import { WalletContext } from "@/contexts/WalletContext";
@@ -22,10 +26,10 @@ export const useAddPolicyToIPA = () => {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: POLICY_REGISTRAR_ADDRESS,
-        abi: IPAPolicyCreation.abi,
-        functionName: "addPolicyToIPA",
-        args: [BigInt(pilPolicy), ipId],
+        address: IPA_LICENSING_REGISTRY_ADDRESS,
+        abi: IPALicensing.abi,
+        functionName: "addPolicyToIp",
+        args: [ipId, BigInt(pilPolicy)],
         account: account,
         chain: sepolia,
       });
