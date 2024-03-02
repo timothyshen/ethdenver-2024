@@ -7,7 +7,7 @@ export default function Page() {
 
   return (
     <>
-      <Header />
+      {/* <Header />
       <div className="grid grid-cols-2 gap-4">
         <ModelAll />
         <div className=" mt-5 space-y-3">
@@ -20,8 +20,8 @@ export default function Page() {
             <ViewModel title="Remix a model NFT" description="Create a new model based on an existing one" isRemix={true} />
           </div>
         </div>
-      </div>
-
+      </div> */}
+      <div>test</div>
     </>
   );
 }

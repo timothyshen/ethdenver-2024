@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { type ReactNode } from 'react';
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Web3Providers } from "@/provider/ProviderWrap";
+import { Web3Providers } from "@/app/ProviderWrap";
 
 
 export const metadata: Metadata = {

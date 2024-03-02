@@ -1,4 +1,4 @@
-import { client } from "@/provider/client";
+import { client } from "@/app/client";
 import IPARegistrar from "@/contract/abi/IPARegistrar.json";
 import { IPA_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
 

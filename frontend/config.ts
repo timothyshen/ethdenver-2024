@@ -1,18 +1,6 @@
-import { createConfig, http } from "wagmi";
+import { createConfig } from "wagmi";
 import { sepolia } from "wagmi/chains";
-import { createPublicClient, createWalletClient, custom } from "viem";
 import { getDefaultConfig } from "connectkit";
-
-export const client = createPublicClient({
-  chain: sepolia,
-  transport: http(),
-});
-
-export const walletClient = createWalletClient({
-  chain: sepolia,
-  // @ts-ignore
-  transport: custom(window.ethereum!),
-});
 
 export const config = createConfig(
   getDefaultConfig({

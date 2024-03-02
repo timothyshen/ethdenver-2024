@@ -1,7 +1,7 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import ModelNFTLiecnse from "@/contract/abi/ModelNFTLiecnse.json";
 import { LICENSING_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
-import { walletClient } from "@/provider/client";
+import { walletClient } from "@/app/client";
 
 export const useCreateLicense = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();

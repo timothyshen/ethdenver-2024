@@ -5,7 +5,7 @@ import {
   IPA_REGISTRAR_ADDRESS,
   IPA_ASSETS_REGISTRY_ADDRESS,
 } from "@/contract/contractAddress";
-import { walletClient } from "@/provider/client";
+import { walletClient } from "@/app/client";
 
 export const useRegistrarIP = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
