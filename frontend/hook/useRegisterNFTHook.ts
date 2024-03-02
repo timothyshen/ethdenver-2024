@@ -1,3 +1,5 @@
+"use client";
+
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPARegistrar from "@/contract/abi/IPARegistrar.json";
 import IPAssetsRegistry from "@/contract/abi/IPAssetRegistry.json";

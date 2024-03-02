@@ -1,3 +1,5 @@
+"use client";
+
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import LicenseNFT from "@/contract/abi/LicenseNFT.json";
 import { LICENCE_NFT_ADDRESS } from "@/contract/contractAddress";

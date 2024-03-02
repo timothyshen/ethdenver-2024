@@ -2,6 +2,7 @@
 import { ViewModel } from "@/view/ViewModel";
 import { Header } from "@/components/Header";
 import { ModelAll } from "@/view/ModelAll";
+import { ViewModelRemix } from "@/view/ViewModelRemix";
 
 export default function Page() {
 
@@ -17,7 +18,7 @@ export default function Page() {
           </div>
           <div>
             <h1>Model Remix</h1>
-            <ViewModel title="Remix a model NFT" description="Create a new model based on an existing one" isRemix={true} />
+            <ViewModelRemix title="Remix a model NFT" description="Create a new model based on an existing one" />
           </div>
         </div>
       </div>

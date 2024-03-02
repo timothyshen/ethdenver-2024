@@ -1,3 +1,5 @@
+"use client";
+
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import ModelNFTLiecnse from "@/contract/abi/ModelNFTLiecnse.json";
 import { LICENSING_REGISTRAR_ADDRESS } from "@/contract/contractAddress";

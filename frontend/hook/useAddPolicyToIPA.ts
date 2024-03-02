@@ -1,10 +1,10 @@
+"use client";
+
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
 import { POLICY_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/app/client";
 import { PolicyProps } from "@/types/index";
-
-
 
 export const useAddPolicyToIPA = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
