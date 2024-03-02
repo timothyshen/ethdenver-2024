@@ -6,6 +6,7 @@ import { Web3Providers } from "@/app/ProviderWrap";
 import { WalletContextProvider } from "@/contexts/WalletContext";
 
 
+
 export const metadata: Metadata = {
   title: "Create your Model IP",
   description: "Create your Model IP",

@@ -7,12 +7,13 @@ import {
   IPA_REGISTRAR_ADDRESS,
   IPA_ASSETS_REGISTRY_ADDRESS,
 } from "@/contract/contractAddress";
-import { useContext } from "react";
-import { WalletContext } from "@/contexts/WalletContext";
+import {useContext} from "react";
+import {WalletContext} from "@/contexts/WalletContext";
 import { sepolia } from "wagmi/chains";
 export const useRegistrarIP = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
-  const { walletClient } = useContext(WalletContext);
+  const {walletClient} =  useContext(WalletContext)
+
 
   const registerIP = async (
     ipName: string,
@@ -21,13 +22,14 @@ export const useRegistrarIP = () => {
     modelName: string
   ) => {
     try {
+
       if (!walletClient) {
         throw new Error("Wallet client not found");
       }
 
       const [account] = await walletClient.getAddresses();
 
-      await walletClient.writeContract({
+      await walletClient?.writeContract({
         address: IPA_ASSETS_REGISTRY_ADDRESS,
         abi: IPAssetsRegistry.abi,
         functionName: "setApprovalForAll",
@@ -37,7 +39,7 @@ export const useRegistrarIP = () => {
       });
 
       console.log("account", account);
-      const res = await walletClient.writeContract({
+      const res = await walletClient?.writeContract({
         address: IPA_REGISTRAR_ADDRESS,
         abi: IPARegistrar.abi,
         functionName: "register",
