@@ -948,7 +948,7 @@
 
 "@rainbow-me/rainbowkit@^2.0.1":
   version "2.0.1"
-  resolved "https://registry.npmjs.org/@rainbow-me/rainbowkit/-/rainbowkit-2.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-2.0.1.tgz#c948a38850a0049b972c27a6700eed6a316ecb1a"
   integrity sha512-htE5nI0/2Q4UcLuiVW4IDmA6bqSyEzIB/XNcD1MEvYyLLZRTdQ8YGUhXAlZfYCC2Q+TcfYAxS826XcfPXwh7nQ==
   dependencies:
     "@vanilla-extract/css" "1.14.0"
