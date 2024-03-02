@@ -1,9 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { NFTShowCase } from '@/components/NFTShowCase'
-import { sampleNFTDataset } from '@/lib/sampleDataset'
 import { getAllModelInfo } from '@/contract/IPNFTContract'
 import { ModelNFTMetadataProps } from '@/types'
+
 
 export const ViewAllModel = () => {
 
@@ -18,13 +18,6 @@ export const ViewAllModel = () => {
         fetchData()
     }, [])
 
-    if (NFTMetaData.length === 0) {
-        return (
-            <div>
-                <h1>No record yet</h1>
-            </div>
-        )
-    }
 
     return (
         <div>

@@ -1,5 +1,5 @@
 import IPARegistrar from "@/contract/abi/IPARegistrar.json";
-import { createPublicClient, createWalletClient, custom } from "viem";
+import { createPublicClient, defineChain } from "viem";
 import { http } from "wagmi";
 import { sepolia } from "viem/chains";
 import { IPA_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
@@ -21,9 +21,11 @@ export async function getModelInfoByTokenId(tokenId: number) {
 }
 
 export async function getAllModelInfo() {
-  return await client.readContract({
+  const getAllModelInfo = await client.readContract({
     abi: IPARegistrar.abi,
     functionName: "getAllModelInfo",
     address: IPA_REGISTRAR_ADDRESS,
   });
+  console.log("getAllModelInfo", getAllModelInfo);
+  return getAllModelInfo;
 }
