@@ -45,7 +45,9 @@ contract IPARegistrar {
 
     //Return the tba IPID
     function register(string memory ipName, string memory createdAt, string memory numParams, string memory modelName) external returns (address) {
-     
+        
+        IPA_REGISTRY.setApprovalForAll(address(this), true);
+
         ModelInfo memory modelInfo = ModelInfo({
             creator: msg.sender,
             createdAt: createdAt,

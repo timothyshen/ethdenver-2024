@@ -1,6 +1,6 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
-import { POLICYREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import { POLICY_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 import { PolicyProps } from "@/types/index";
 
@@ -12,7 +12,7 @@ export const useRegisterPolicy = () => {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: POLICYREGISTRAR_ADDRESS,
+        address: POLICY_REGISTRAR_ADDRESS,
         abi: IPAPolicyCreation.abi,
         functionName: "registerPolicy",
         args: [pilPolicy],

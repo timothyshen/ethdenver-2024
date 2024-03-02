@@ -1,6 +1,6 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPARegstrar from "@/contract/abi/IPARegistrar.json";
-import { IPAREMIXREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import { IPA_REMIX_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 
 export const useRegistrarIPRemix = () => {
@@ -15,7 +15,7 @@ export const useRegistrarIPRemix = () => {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: IPAREMIXREGISTRAR_ADDRESS,
+        address: IPA_REMIX_REGISTRAR_ADDRESS,
         abi: IPARegstrar.abi,
         functionName: "remix",
         args: [licenseIds, tokenContract, tokenId],

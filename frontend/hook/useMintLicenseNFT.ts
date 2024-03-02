@@ -1,6 +1,6 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import ModelNFTLiecnse from "@/contract/abi/ModelNFTLiecnse.json";
-import { LICENSINGREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import LicenseNFT from "@/contract/abi/LicenseNFT.json";
+import { LICENCE_NFT_ADDRESS } from "@/contract/contractAddress";
 import { walletClient } from "@/provider/client";
 
 export const useMintLicenseNFT = () => {
@@ -11,9 +11,9 @@ export const useMintLicenseNFT = () => {
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
-        address: LICENSINGREGISTRAR_ADDRESS,
-        abi: ModelNFTLiecnse.abi,
-        functionName: "mintLicense",
+        address: LICENCE_NFT_ADDRESS,
+        abi: LicenseNFT.abi,
+        functionName: "mint",
         args: [account],
         account: account,
       });

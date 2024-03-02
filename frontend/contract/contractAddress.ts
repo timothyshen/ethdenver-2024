@@ -1,19 +1,21 @@
-export const MODEL_NFT_ADDRESS = "0x76af96c4f1a00adfb7e9484b4c46cb59a47e6f48";
-export const LICENCE_NFT_ADDRESS = "0x261803e98c78a184582d986ffb1b03a89876faac";
-export const IPAREGISTRAR_ADDRESS =
-  "0xa2cc67fa7cbb4e40eb01018573c313fe6042a5a0";
-export const IPAREMIXREGISTRAR_ADDRESS =
-  "0xcff41f78cc248b21b7295304000a84ed0e314d41";
-export const POLICYREGISTRAR_ADDRESS =
-  "0xf1bf632596c7a6fbc529ba2ce5208b0520ac6dcb";
-export const LICENSINGREGISTRAR_ADDRESS =
-  "0x453bcbbb10460bc25c314d94ce419edce0d6dd77";
+export const MODEL_NFT_ADDRESS = "0xe96b2504cfeff5b5d17b7b2e1fcf9dd597158d4a";
+export const LICENCE_NFT_ADDRESS = "0x68fe50d359c823736f56e2dcd281fd4d8c11c32d";
+export const IPA_REMIX_REGISTRAR_ADDRESS =
+  "0xb04ad7df4ad864561c59504df4e1866ae1d5e063";
+export const IPA_REGISTRAR_ADDRESS =
+  "0xa2935206496f2d0162140d38735e92be4b2e3a45";
+export const POLICY_REGISTRAR_ADDRESS =
+  "0xdc58134405335b5d3fd485dab15dfa14899db271";
+export const LICENSING_REGISTRAR_ADDRESS =
+  "0xca9fc3f22d14946562bf6c298d0d60c42f8ddddd";
+export const IPA_ASSETS_REGISTRY_ADDRESS =
+  "0x292639452A975630802C17c9267169D93BD5a793";
 
 /**
-deployed ModelNFT to 0x76af96c4f1a00adfb7e9484b4c46cb59a47e6f48
-deployed LicenseNFT to 0x261803e98c78a184582d986ffb1b03a89876faac
-deployed ModelNFTRemix to 0xcff41f78cc248b21b7295304000a84ed0e314d41
-deployed ModelNFTRegistrar to 0xa2cc67fa7cbb4e40eb01018573c313fe6042a5a0
-deployed PolicyRegistrar to 0xf1bf632596c7a6fbc529ba2ce5208b0520ac6dcb
-deployed LicensingRegistrar to 0x453bcbbb10460bc25c314d94ce419edce0d6dd77
+deployed ModelNFT to 0xe96b2504cfeff5b5d17b7b2e1fcf9dd597158d4a
+deployed LicenseNFT to 0x68fe50d359c823736f56e2dcd281fd4d8c11c32d
+deployed ModelNFTRemix to 0xb04ad7df4ad864561c59504df4e1866ae1d5e063
+deployed ModelNFTRegistrar to 0xa2935206496f2d0162140d38735e92be4b2e3a45
+deployed PolicyRegistrar to 0xdc58134405335b5d3fd485dab15dfa14899db271
+deployed LicensingRegistrar to 0xca9fc3f22d14946562bf6c298d0d60c42f8ddddd
  **/

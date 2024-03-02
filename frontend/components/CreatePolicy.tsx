@@ -80,7 +80,7 @@ export const CreatePolicy: React.FC<PolicyModelProps> = ({ tokenAccount }) => {
                 return null;
             })}
             <div className='space-x-4 mt-5'>
-                <Button variant='default' type='submit'>Test</Button>
+                {/* <Button variant='default' type='submit'>Test</Button> */}
                 <CreateLicenseButton pilPolicy={policy} tokenAccount={tokenAccount} />
                 <CreatePolicyButton pilPolicy={policy} />
                 <AddPolicyToIPAButton pilPolicy={policy} tokenAccount={tokenAccount} />

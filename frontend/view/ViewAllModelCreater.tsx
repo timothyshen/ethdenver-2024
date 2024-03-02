@@ -24,7 +24,7 @@ export const ViewAllModelCreator = () => {
     return (
         <div>
             <div className='grid grid-cols-3 gap-4'>
-                {sampleNFTDataset.map((NFTMetaData, index) => {
+                {NFTMetaData.map((NFTMetaData, index) => {
                     return NFTMetaData.owner === address && (
                         <NFTShowCase key={index} NFTMetaData={NFTMetaData} isCreator={true} />
                     )

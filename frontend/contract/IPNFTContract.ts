@@ -1,12 +1,12 @@
 import { client } from "@/provider/client";
-import IPARemixRegistrar from "@/contract/abi/IPARemixRegistrar.json";
-import { IPAREGISTRAR_ADDRESS } from "@/contract/contractAddress";
+import IPARegistrar from "@/contract/abi/IPARegistrar.json";
+import { IPA_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
 
 export async function getModelInfoByTokenId(tokenId: number) {
   const getModelInfo = await client.readContract({
-    abi: IPARemixRegistrar.abi,
+    abi: IPARegistrar.abi,
     functionName: "getModelInfo",
-    address: IPAREGISTRAR_ADDRESS,
+    address: IPA_REGISTRAR_ADDRESS,
     args: [BigInt(tokenId)],
   });
   console.log("getModelInfo", getModelInfo);
@@ -15,9 +15,9 @@ export async function getModelInfoByTokenId(tokenId: number) {
 
 export async function getAllModelInfo() {
   const getAllModelInfo = await client.readContract({
-    abi: IPARemixRegistrar.abi,
+    abi: IPARegistrar.abi,
     functionName: "getAllModelInfo",
-    address: IPAREGISTRAR_ADDRESS,
+    address: IPA_REGISTRAR_ADDRESS,
   });
   console.log("getAllModelInfo", getAllModelInfo);
   return getAllModelInfo;
