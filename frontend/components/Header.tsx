@@ -1,7 +1,5 @@
 import React from 'react';
-
-import { ConnectKitButton } from 'connectkit';
-
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 export const Header = () => {
     return (
         <div className="w-100vw bg-gray-50 border-b">
@@ -9,7 +7,7 @@ export const Header = () => {
                 <h1>
                     Make AI Bot NFT
                 </h1>
-                <ConnectKitButton />
+                <ConnectButton />
             </div>
         </div>
     )
