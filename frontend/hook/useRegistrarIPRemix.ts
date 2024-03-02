@@ -17,6 +17,10 @@ export const useRegistrarIPRemix = () => {
     tokenId: BigInt
   ) => {
     try {
+      if (!walletClient) {
+        throw new Error("Wallet client not found");
+      }
+
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
@@ -26,6 +30,7 @@ export const useRegistrarIPRemix = () => {
         args: [licenseIds, tokenContract, tokenId],
         account: account,
         chain: sepolia
+
       });
     } catch (error) {
       console.error("error", error);

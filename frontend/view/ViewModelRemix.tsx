@@ -32,7 +32,7 @@ export const ViewModelRemix = ({ title, description }: ViewModelProps) => {
         setModelInfo(modelInfo);
     }
 
-    retrieveModelInfo();
+
     return (
         <Card>
             <CardHeader>

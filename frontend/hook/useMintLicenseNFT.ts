@@ -11,8 +11,13 @@ import {sepolia} from "wagmi/chains";
 export const useMintLicenseNFT = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
   const {walletClient} =  useContext(WalletContext)
+
   const mintLicense = async () => {
     try {
+      if (!walletClient) {
+        throw new Error("Wallet client not found");
+      }
+      
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({

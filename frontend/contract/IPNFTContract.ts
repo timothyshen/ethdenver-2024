@@ -1,5 +1,5 @@
 import IPARegistrar from "@/contract/abi/IPARegistrar.json";
-import { createPublicClient, } from "viem";
+import { createPublicClient } from "viem";
 import { http } from "wagmi";
 import { sepolia } from "viem/chains";
 import { IPA_REGISTRAR_ADDRESS } from "@/contract/contractAddress";

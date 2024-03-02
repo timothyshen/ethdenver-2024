@@ -20,9 +20,7 @@ export const WalletContext = createContext<IWalletContext>(
 );
 
 
-export function WalletContextProvider({
-                                       children,
-                                     }: WalletContextProviderProps) {
+export function WalletContextProvider({ children }: WalletContextProviderProps) {
 
   const [localWindow,setWindow]=useState<Window>()
   const [walletClient,setWalletClient]=useState<WalletClient|undefined>()

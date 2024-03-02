@@ -12,8 +12,12 @@ import {sepolia} from "wagmi/chains";
 export const useCreateLicense = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
   const {walletClient} =  useContext(WalletContext)
+
   const createLicense = async (pilPolicy: any, licensorIpId: `0x${string}`) => {
     try {
+      if (!walletClient) {
+        throw new Error("Wallet client not found");
+      }
       const [account] = await walletClient.getAddresses();
       return walletClient.writeContract({
         address: LICENSING_REGISTRAR_ADDRESS,
@@ -21,7 +25,7 @@ export const useCreateLicense = () => {
         functionName: "createLicense",
         args: [pilPolicy, licensorIpId],
         account: account,
-        chain:sepolia
+        chain: sepolia,
       });
     } catch (error) {
       console.error("error", error);

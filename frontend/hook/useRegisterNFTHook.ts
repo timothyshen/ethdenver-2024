@@ -14,6 +14,7 @@ export const useRegistrarIP = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
   const {walletClient} =  useContext(WalletContext)
 
+
   const registerIP = async (
     ipName: string,
     createdAt: string,
@@ -21,7 +22,12 @@ export const useRegistrarIP = () => {
     modelName: string
   ) => {
     try {
-      const [account] = await walletClient?.getAddresses();
+
+      if (!walletClient) {
+        throw new Error("Wallet client not found");
+      }
+
+      const [account] = await walletClient.getAddresses();
 
       await walletClient?.writeContract({
         address: IPA_ASSETS_REGISTRY_ADDRESS,

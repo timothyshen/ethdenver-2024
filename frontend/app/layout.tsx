@@ -3,7 +3,8 @@ import { type ReactNode } from 'react';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Web3Providers } from "@/app/ProviderWrap";
-import {WalletContextProvider} from "@/contexts/WalletContext";
+import { WalletContextProvider } from "@/contexts/WalletContext";
+
 
 
 export const metadata: Metadata = {
