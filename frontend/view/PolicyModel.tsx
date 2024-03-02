@@ -5,7 +5,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from ""
+} from "@/components/ui/dialog"
 import { CreatePolicy } from "@/components/CreatePolicy"
 import { Button } from "@/components/ui/button"
 
