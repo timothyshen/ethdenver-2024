@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 import { ViewAllModel } from '@/view/ViewAllModel'
 import { ViewAllModelCreator } from '@/view/ViewAllModelCreater'
