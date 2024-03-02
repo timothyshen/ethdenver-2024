@@ -1,4 +1,5 @@
 import hre from "hardhat";
+import { zeroAddress } from "viem";
 
 async function main() {
   const ModelNFT = await hre.viem.deployContract("ModelNFT", [
@@ -37,18 +38,18 @@ async function main() {
     "IPAPolicyCreation",
     [
       "0xA6bEf9CC650A16939566c1da5d5088f3F028a865",
-      5,
-      TokenFLOCK.address,
-      "0xf82EEe73c2c81D14DF9bC29DC154dD3c079d80a0",
+      BigInt(0),
+      zeroAddress,
+      zeroAddress,
     ]
   );
 
   // @ts-ignore
   const PolicyRegistrar = await hre.viem.deployContract("ModelNFTLiecnse", [
     "0xA6bEf9CC650A16939566c1da5d5088f3F028a865",
-    "0x3809f4128B0B33AFb17576edafD7D4F4E2ABE933",
-    5,
-    TokenFLOCK.address,
+    zeroAddress,
+    BigInt(0),
+    zeroAddress,
   ]);
 
   console.log(`deployed PolicyRegistrar to ${PolicyRegistrar.address}`);
