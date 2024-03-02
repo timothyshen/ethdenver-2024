@@ -3,7 +3,7 @@ import { ViewModel } from "@/view/ViewModel";
 import { Header } from "@/components/Header";
 import { ModelAll } from "@/view/ModelAll";
 
-export default function Home() {
+export default function Page() {
 
   return (
     <>

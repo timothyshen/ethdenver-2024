@@ -1,15 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["ui", "contract-config"],
-  images: {
-    domains: [
-      "cube.elemecdn.com",
-      "etherscan.io",
-      "optimism.io",
-      "file.rendit.io",
-    ],
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
