@@ -10,8 +10,7 @@ export const client = createPublicClient({
   transport: http(),
 });
 
-// export const walletClient = createWalletClient({
-//   chain: sepolia,
-//   // @ts-ignore
-//   transport: custom(window.ethereum!),
-// });
+export const walletClient = createWalletClient({
+  chain: sepolia,
+  transport: custom(window.ethereum!),
+});
