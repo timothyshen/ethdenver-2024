@@ -3,16 +3,15 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
 import { POLICY_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
-import { PolicyProps } from "@/types/index";
-import {useContext} from "react";
-import {WalletContext} from "@/contexts/WalletContext";
-import {sepolia} from "wagmi/chains";
+import { useContext } from "react";
+import { WalletContext } from "@/contexts/WalletContext";
+import { sepolia } from "wagmi/chains";
 
 export const useRegisterPolicy = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
-  const {walletClient} =  useContext(WalletContext)
+  const { walletClient } = useContext(WalletContext);
 
-  const registerPolicy = async (pilPolicy: PolicyProps) => {
+  const registerPolicy = async (pilPolicy: number) => {
     try {
       if (!walletClient) {
         throw new Error("Wallet client not found");

@@ -4,13 +4,15 @@ import { Button } from '../ui/button'
 import { useAddPolicyToIPA } from '@/hook/useAddPolicyToIPA'
 import { PolicyProps } from '@/types'
 
-export const AddPolicyToIPAButton = ({ pilPolicy, tokenAccount }: { pilPolicy: PolicyProps, tokenAccount: `0x${string}` }) => {
+export const AddPolicyToIPAButton = ({ pilPolicy, tokenAccount }: { pilPolicy: number, tokenAccount: `0x${string}` }) => {
 
     const { addPolicy, isPending, isConfirming, isConfirmed, error } = useAddPolicyToIPA();
 
     const onSubmit = async () => {
         // Implement minting logic here
         console.log('Create License');
+        console.log('pilPolicy', pilPolicy);
+        console.log('tokenAccount', tokenAccount);
         try {
             const res = addPolicy(pilPolicy, tokenAccount);
             console.log('res', res);

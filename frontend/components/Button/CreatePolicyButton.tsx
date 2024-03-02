@@ -6,7 +6,7 @@ import { useRegisterPolicy } from '@/hook/useRegisterPolicy'
 import { PolicyProps } from '@/types'
 
 
-export const CreatePolicyButton = ({ pilPolicy }: { pilPolicy: PolicyProps }) => {
+export const CreatePolicyButton = ({ pilPolicy }: { pilPolicy: number }) => {
 
     const { registerPolicy, isPending, isConfirming, isConfirmed, error } = useRegisterPolicy();
 
@@ -30,6 +30,6 @@ export const CreatePolicyButton = ({ pilPolicy }: { pilPolicy: PolicyProps }) =>
 
 
     return (
-        <Button onClick={onSubmit} variant='default'>Create Policy NFT</Button>
+        <Button disabled onClick={onSubmit} variant='default'>Create Policy</Button>
     )
 }

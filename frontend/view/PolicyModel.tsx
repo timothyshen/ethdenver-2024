@@ -10,6 +10,7 @@ import { CreatePolicy } from "@/components/CreatePolicy"
 import { Button } from "@/components/ui/button"
 
 import React from 'react'
+import { SelectPolicy } from "@/components/SelectPolicy";
 interface PolicyModelProps {
     tokenAccount: `0x${string}`;
 }
@@ -28,7 +29,7 @@ export const PolicyModel: React.FC<PolicyModelProps> = ({ tokenAccount }) => {
                         and remove your data from our servers.
                     </DialogDescription>
                 </DialogHeader>
-                <CreatePolicy tokenAccount={tokenAccount} />
+                <SelectPolicy tokenAccount={tokenAccount} />
             </DialogContent>
         </Dialog>
 
