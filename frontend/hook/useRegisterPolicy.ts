@@ -3,14 +3,20 @@
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPAPolicyCreation from "@/contract/abi/IPAPolicyCreation.json";
 import { POLICY_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
-import { walletClient } from "@/app/client";
 import { PolicyProps } from "@/types/index";
+import { useContext } from "react";
+import { WalletContext } from "@/contexts/WalletContext";
+import { sepolia } from "wagmi/chains";
 
 export const useRegisterPolicy = () => {
   const { data: hash, error, isPending, writeContract } = useWriteContract();
-
+  const { walletClient } = useContext(WalletContext);
   const registerPolicy = async (pilPolicy: PolicyProps) => {
     try {
+      if (!walletClient) {
+        throw new Error("Wallet client not found");
+      }
+
       const [account] = await walletClient.getAddresses();
 
       return walletClient.writeContract({
@@ -19,6 +25,7 @@ export const useRegisterPolicy = () => {
         functionName: "registerPolicy",
         args: [pilPolicy],
         account: account,
+        chain: sepolia,
       });
     } catch (error) {
       console.error("error", error);

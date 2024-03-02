@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Web3Providers } from "@/app/ProviderWrap";
+import { WalletContextProvider } from "@/contexts/WalletContext";
 
 
 export const metadata: Metadata = {
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Web3Providers>
-          {children}
+          <WalletContextProvider>
+            {children}
+          </WalletContextProvider>
         </Web3Providers>
       </body>
     </html>
