@@ -5,11 +5,7 @@ import { sampleNFTDataset } from '@/lib/sampleDataset'
 import { getAllModelInfo } from '@/contract/IPNFTContract'
 import { ModelNFTMetadataProps } from '@/types'
 
-type ViewAllModelProps = {
-    setModel: React.Dispatch<React.SetStateAction<any>>;
-}
-
-export const ViewAllModel = ({ setModel }: ViewAllModelProps) => {
+export const ViewAllModel = () => {
 
     const [NFTMetaData, setNFTMetaData] = useState<ModelNFTMetadataProps[]>([])
 

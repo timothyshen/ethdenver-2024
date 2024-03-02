@@ -10,7 +10,8 @@ export const client = createPublicClient({
 
 export const walletClient = createWalletClient({
   chain: sepolia,
-  transport: custom((window as any)?.ethereum),
+  // @ts-ignore
+  transport: custom(window.ethereum!),
 });
 
 export const config = createConfig(
@@ -27,3 +28,9 @@ export const config = createConfig(
     appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
   })
 );
+
+declare module "wagmi" {
+  interface Register {
+    config: typeof config;
+  }
+}
