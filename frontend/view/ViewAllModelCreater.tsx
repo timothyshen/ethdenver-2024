@@ -21,6 +21,15 @@ export const ViewAllModelCreator = () => {
         fetchData()
     }, [])
 
+    if (NFTMetaData.length === 0) {
+        return (
+            <div>
+                <h1>No record yet</h1>
+            </div>
+        )
+    }
+
+
     return (
         <div>
             <div className='grid grid-cols-3 gap-4'>

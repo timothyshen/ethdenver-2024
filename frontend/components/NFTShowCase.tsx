@@ -26,7 +26,6 @@ export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
         return address.slice(0, 6) + '...' + address.slice(-4);
     }
 
-    const getTokenAccount = NFTMetaData.ipId
 
     return (
         <Card className="m-2">

@@ -27,7 +27,7 @@ export const ViewModelRemix = ({ title, description }: ViewModelProps) => {
     const [modelInfo, setModelInfo] = useState<any>({});
 
     const retrieveModelInfo = async () => {
-        const modelInfo = await getModelInfoByTokenId(1);
+        const modelInfo = await getModelInfoByTokenId(0);
         console.log('modelInfo', modelInfo);
         setModelInfo(modelInfo);
     }
