@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from '../ui/button'
 
 
-export const RegisterNFTModel = () => {
+export const RegisterNFTModel = ({}) => {
 
 
 

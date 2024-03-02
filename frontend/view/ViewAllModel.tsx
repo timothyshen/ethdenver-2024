@@ -28,6 +28,7 @@ export const ViewAllModel = () => {
                             key={index}
                             NFTMetaData={nftItem}
                             isCreator={false}
+
                         />
                     )
                 })}

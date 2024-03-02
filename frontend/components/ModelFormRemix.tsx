@@ -3,7 +3,13 @@ import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ModelProps } from '@/types';
-import { useAccount } from 'wagmi';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
 interface MintModelNFTProps {
     modelData: ModelProps;
@@ -23,9 +29,14 @@ export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel }) 
         setModel({ ...modelData, numParam: e.target.value });
     };
 
+    const handleTokenID = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setModel({ ...modelData, numParam: e.target.value });
+    };
+
+
     return (
         <>
-            <div className='my-2'>
+            <div className='my-2 space-y-2'>
                 <Label htmlFor="name">Name</Label>
                 <Input
                     id="name"
@@ -36,7 +47,7 @@ export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel }) 
                 />
             </div>
 
-            <div className='my-2'>
+            <div className='my-2 space-y-2'>
                 <Label htmlFor="numParam">NumParam</Label>
                 <Input
                     id="numParam"
@@ -47,15 +58,30 @@ export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel }) 
                 />
             </div>
 
-            <div className='my-2'>
-                <Label htmlFor="numParam">TokenId</Label>
+            <div className='my-2 space-y-2'>
+                <Label htmlFor="TokenId">TokenId</Label>
                 <Input
                     id="TokenId"
                     type="text"
                     placeholder="TokenId"
                     value={modelData.parentID}
-                    onChange={handleNumParamChange}
+                    onChange={handleTokenID}
                 />
+            </div>
+
+            <div className='my-2 space-y-2'>
+                <Label htmlFor='workType'>Work Type</Label>
+                <Select onValueChange={(event) => (event)}>
+                    <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Select Work Type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value='Finetuning'>Finetuning</SelectItem>
+                        <SelectItem value='Model Inference'>Model Inference</SelectItem>
+                        <SelectItem value='Algo improvement'>Algo improvement</SelectItem>
+                    </SelectContent>
+                </Select>
+
             </div>
         </>
     );

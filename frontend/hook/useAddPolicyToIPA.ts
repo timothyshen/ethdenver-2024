@@ -8,9 +8,7 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 
 import {
   IPA_LICENSING_REGISTRY_ADDRESS,
-  LICENSING_REGISTRAR_ADDRESS,
   PERMISSIONED_ADDRESS,
-  IPA_ACCOUNTS_ADDRESS,
 } from "@/contract/contractAddress";
 import IPALicensing from "@/contract/abi/LicenseModule.json";
 import AccessControl from "@/contract/abi/AccessPermission.json";
@@ -44,6 +42,7 @@ export const useAddPolicyToIPA = () => {
           BigInt(1),
         ],
       });
+      
       console.log("setPermissionHash", setPermissionHash);
 
       const addPolicyToIpHash = encodeFunctionData({
@@ -61,23 +60,18 @@ export const useAddPolicyToIPA = () => {
         chain: sepolia,
       });
 
-      // walletClient.writeContract({
-      //   address: PERMISSIONED_ADDRESS,
-      //   abi: AccessControl.abi,
-      //   functionName: "setPermission",
-      //   args: [ipId, account, IPA_LICENSING_REGISTRY_ADDRESS, "0x00000000", 1],
-      //   account: account,
-      //   chain: sepolia,
-      // });
-
-      // return walletClient.writeContract({
-      //   address: IPA_LICENSING_REGISTRY_ADDRESS,
-      //   abi: IPALicensing.abi,
-      //   functionName: "addPolicyToIp",
-      //   args: [ipId, BigInt(pilPolicy)],
-      //   account: account,
-      //   chain: sepolia,
-      // });
+      walletClient.writeContract({
+        address: ipId,
+        abi: IPAccount.abi,
+        functionName: "execute",
+        args: [
+          IPA_LICENSING_REGISTRY_ADDRESS,
+          parseEther("0"),
+          addPolicyToIpHash,
+        ],
+        account: account,
+        chain: sepolia,
+      });
     } catch (error) {
       console.error("error", error);
     }

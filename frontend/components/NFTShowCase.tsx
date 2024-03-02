@@ -11,16 +11,17 @@ import {
 import React from 'react'
 import { ModelNFTMetadataProps } from '@/types'
 import { LicenseNFTMint } from "./Button/LicenseNFTButton"
-import { RegisterNFTModel } from "./Button/RegisterNFTButton"
 import { PolicyModel } from "@/view/PolicyModel"
+import { Button } from "./ui/button"
 
 type NFTShowCaseProps = {
     NFTMetaData: ModelNFTMetadataProps;
     isCreator: boolean;
+    setModel?: () => void
 }
 
 
-export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
+export const NFTShowCase = ({ NFTMetaData, isCreator, setModel }: NFTShowCaseProps) => {
 
     const sliceAddress = (address: string) => {
         return address.slice(0, 6) + '...' + address.slice(-4);
@@ -46,7 +47,7 @@ export const NFTShowCase = ({ NFTMetaData, isCreator }: NFTShowCaseProps) => {
                 ) : (
                     <div className="space-x-5">
                         <LicenseNFTMint />
-                        <RegisterNFTModel />
+                        <Button variant='default'>Register NFT Model</Button>
                     </div>
                 )}
             </CardFooter>

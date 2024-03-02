@@ -2,10 +2,12 @@
 
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import ModelNFTLiecnse from "@/contract/abi/ModelNFTLiecnse.json";
+import AccessControl from "@/contract/abi/AccessPermission.json";
+
 import { IPA_LICENSING_REGISTRY_ADDRESS } from "@/contract/contractAddress";
 import IPALicensing from "@/contract/abi/LicenseModule.json";
 
-import { zeroAddress } from "viem";
+import { encodeFunctionData } from "viem";
 import { useContext } from "react";
 import { WalletContext } from "@/contexts/WalletContext";
 import { sepolia } from "wagmi/chains";
@@ -20,6 +22,18 @@ export const useCreateLicense = () => {
         throw new Error("Wallet client not found");
       }
       const [account] = await walletClient.getAddresses();
+
+      const setPermissionHash = encodeFunctionData({
+        abi: AccessControl.abi,
+        functionName: "setPermission",
+        args: [
+          ipId,
+          account,
+          IPA_LICENSING_REGISTRY_ADDRESS,
+          "0x00000000",
+          BigInt(1),
+        ],
+      });
       return walletClient.writeContract({
         address: IPA_LICENSING_REGISTRY_ADDRESS,
         abi: IPALicensing.abi,
