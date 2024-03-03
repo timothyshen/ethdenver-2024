@@ -9,6 +9,7 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import {
   IPA_LICENSING_REGISTRY_ADDRESS,
   PERMISSIONED_ADDRESS,
+  LICENSING_REGISTRAR_ADDRESS,
 } from "@/contract/contractAddress";
 import IPALicensing from "@/contract/abi/LicenseModule.json";
 import AccessControl from "@/contract/abi/AccessPermission.json";
@@ -36,13 +37,13 @@ export const useAddPolicyToIPA = () => {
         functionName: "setPermission",
         args: [
           ipId,
-          account,
+          LICENSING_REGISTRAR_ADDRESS,
           IPA_LICENSING_REGISTRY_ADDRESS,
-          "0x00000000",
+          '0x12345678',
           BigInt(1),
         ],
       });
-      
+
       console.log("setPermissionHash", setPermissionHash);
 
       const addPolicyToIpHash = encodeFunctionData({
@@ -60,18 +61,18 @@ export const useAddPolicyToIPA = () => {
         chain: sepolia,
       });
 
-      walletClient.writeContract({
-        address: ipId,
-        abi: IPAccount.abi,
-        functionName: "execute",
-        args: [
-          IPA_LICENSING_REGISTRY_ADDRESS,
-          parseEther("0"),
-          addPolicyToIpHash,
-        ],
-        account: account,
-        chain: sepolia,
-      });
+      // walletClient.writeContract({
+      //   address: ipId,
+      //   abi: IPAccount.abi,
+      //   functionName: "execute",
+      //   args: [
+      //     IPA_LICENSING_REGISTRY_ADDRESS,
+      //     parseEther("0"),
+      //     addPolicyToIpHash,
+      //   ],
+      //   account: account,
+      //   chain: sepolia,
+      // });
     } catch (error) {
       console.error("error", error);
     }
@@ -84,6 +85,7 @@ export const useAddPolicyToIPA = () => {
 
   return {
     addPolicy,
+    hash,
     isPending,
     isConfirming,
     isConfirmed,

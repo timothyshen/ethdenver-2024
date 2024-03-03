@@ -27,7 +27,7 @@ export const useCreateLicense = () => {
         abi: AccessControl.abi,
         functionName: "setPermission",
         args: [
-          ipId,
+          licensorIpId,
           account,
           IPA_LICENSING_REGISTRY_ADDRESS,
           "0x00000000",

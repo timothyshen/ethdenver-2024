@@ -68,7 +68,7 @@ contract IPARegistrar {
             })
         );
 
-        address ipID = IPA_REGISTRY.register(1, address(NFT), tokenId, IP_RESOLVER, true, metadata);
+        address ipID = IPA_REGISTRY.register(block.chainid, address(NFT), tokenId, IP_RESOLVER, true, metadata);
 
         TokenModelInfo memory tokenModelInfo = TokenModelInfo({
             tokenId: tokenId,

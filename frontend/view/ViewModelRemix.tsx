@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MintRemixNFT } from '@/components/Button/MintRemixNFTButton'
 import { ModelForm } from '@/components/ModelFormRemix'
 import { ModelProps } from '@/types'
@@ -26,12 +26,15 @@ export const ViewModelRemix = ({ title, description }: ViewModelProps) => {
     const [message, setMessage] = useState<string>('');
     const [modelInfo, setModelInfo] = useState<any>({});
 
-    const retrieveModelInfo = async () => {
-        const modelInfo = await getModelInfoByTokenId(0);
-        console.log('modelInfo', modelInfo);
-        setModelInfo(modelInfo);
-    }
+    useEffect(() => {
+        const retrieveModelInfo = async () => {
+            const modelInfo = await getModelInfoByTokenId(0);
+            console.log('modelInfo', modelInfo);
+            setModelInfo(modelInfo);
+        }
+        retrieveModelInfo();
 
+    }, [])
 
     return (
         <Card>
@@ -44,7 +47,7 @@ export const ViewModelRemix = ({ title, description }: ViewModelProps) => {
             </CardContent>
             <CardFooter>
                 <div className='text-red-500'>{message}</div>
-                <MintRemixNFT licenseId={[]} tokenAccount={modelInfo.ipId} tokenId={BigInt(1)} setMessage={setMessage} />
+                <MintRemixNFT licenseId={[BigInt(1)]} tokenAccount={modelInfo.ipId} tokenId={BigInt(1)} setMessage={setMessage} />
             </CardFooter>
         </Card>
     )

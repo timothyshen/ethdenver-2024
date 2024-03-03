@@ -41,7 +41,7 @@ export const MintRemixNFT: React.FC<MintRemixNFTProps> = ({ licenseId, tokenAcco
 
     return (
         <Button variant="default" onClick={onSubmit}>
-            Register Remix
+            {isConfirming ? "Registering Remix" : "Register Remix"}
         </Button>
     );
 };

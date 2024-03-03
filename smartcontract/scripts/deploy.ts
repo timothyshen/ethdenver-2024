@@ -2,10 +2,10 @@ import hre from "hardhat";
 import { zeroAddress } from "viem";
 
 async function main() {
-  // const ModelNFT = await hre.viem.deployContract("ModelNFT", [
-  //   "FLock Model NFT",
-  //   "FLMT",
-  // ]);
+  const ModelNFT = await hre.viem.deployContract("ModelNFT", [
+    "FLock Model NFT",
+    "FLMT",
+  ]);
 
   // const LicenseNFT = await hre.viem.deployContract("LicenseNFT", [
   //   "FLock License NFT",
@@ -19,11 +19,11 @@ async function main() {
   // console.log(`deployed LicenseNFT to ${LicenseNFT.address}`);
 
   // //@ts-ignore
-  // const ModelNFTRegistrar = await hre.viem.deployContract("IPARegistrar", [
-  //   "0x292639452A975630802C17c9267169D93BD5a793",
-  //   "0x3809f4128B0B33AFb17576edafD7D4F4E2ABE933",
-  //   ModelNFT.address,
-  // ]);
+  const ModelNFTRegistrar = await hre.viem.deployContract("IPARegistrar", [
+    "0x292639452A975630802C17c9267169D93BD5a793",
+    "0x3809f4128B0B33AFb17576edafD7D4F4E2ABE933",
+    ModelNFT.address,
+  ]);
 
   // const ModelNFTRemix = await hre.viem.deployContract("IPARemixRegistrar", [
   //   "0x292639452A975630802C17c9267169D93BD5a793",

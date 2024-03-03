@@ -30,7 +30,7 @@ export const ModelForm: React.FC<MintModelNFTProps> = ({ modelData, setModel }) 
     };
 
     const handleTokenID = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setModel({ ...modelData, numParam: e.target.value });
+        setModel({ ...modelData, parentID: e.target.value });
     };
 
 

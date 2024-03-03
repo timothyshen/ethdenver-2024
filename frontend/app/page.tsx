@@ -17,20 +17,20 @@ export default function Page() {
       <Header />
       <div className="grid grid-cols-2 gap-4 p-2">
         <div className=" mt-5">
-          <h1 className='text-xl font-semibold my-3 shadow-md rounded-lg border p-2'>Model Creation</h1>
+          <h1 className='text-xl font-semibold my-3 mx-2 shadow-md rounded-lg border p-2'>Model Creation</h1>
 
           <div className="mt-3 h-[340px] overflow-auto">
             <ViewAllModel />
           </div>
 
-          <h1 className='text-xl font-semibold my-3 shadow-md rounded-lg border p-2'>My Model Creation</h1>
+          <h1 className='text-xl font-semibold my-3 mx-2 shadow-md rounded-lg border p-2'>My Model Creation</h1>
           <div className="mt-3 h-[300px] overflow-auto">
             <ViewAllModelCreator />
           </div>
         </div>
         <div className=" mt-5 space-y-3">
           <div className=" w-full">
-            <h1 className='text-xl font-semibold my-3 shadow-md rounded-lg border p-2'>Model Creation</h1>
+            <h1 className='text-xl font-semibold my-3  shadow-md rounded-lg border p-2'>Model Creation</h1>
             <ViewModel title="Create your model NFT" description="Log your IP rights" />
           </div>
           <div>

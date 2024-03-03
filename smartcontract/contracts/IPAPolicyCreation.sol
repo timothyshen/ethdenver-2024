@@ -4,13 +4,10 @@ pragma solidity ^0.8.23;
 import "@story-protocol/core/contracts/lib/PILFlavors.sol";
 import "@story-protocol/core/contracts/modules/licensing/PILPolicyFrameworkManager.sol";
 import "@story-protocol/core/contracts/modules/licensing/LicensingModule.sol";
-import "@story-protocol/core/contracts/IPAccountImpl.sol";
 
 contract IPAPolicyCreation {
     PILPolicyFrameworkManager public PIL_POLICY_MANAGER;
     LicensingModule public LICENSING_MODULE;
-    IPAccountImpl public IPA_IMP;
-
     address public ROYALTY_POLICY;
     uint256 public MINTING_FEE;
     address public MINTING_FEE_TOKEN;
@@ -22,14 +19,9 @@ contract IPAPolicyCreation {
         CommercialRemix
     }
 
-    constructor(
-        address pilPolicyManager,
-        address licensingModule,
-        address ipaRegistry
-    ) {
+    constructor(address pilPolicyManager, address licensingModule) {
         PIL_POLICY_MANAGER = PILPolicyFrameworkManager(pilPolicyManager);
         LICENSING_MODULE = LicensingModule(licensingModule);
-        IPA_IMP = IPAccountImpl(ipaRegistry);
     }
 
     function getFlavorEnum() public pure returns (PolicyFlavor) {
@@ -37,20 +29,8 @@ contract IPAPolicyCreation {
     }
 
     function registerPolicy(PolicyFlavor flavor) public returns (uint256) {
-        //
-
         RegisterPILPolicyParams
             memory policyConfiguration = getPolicyConfiguration(flavor);
-        IIPAccount ipAccount = IIPAccount(payable(account));
-
-        bytes memory encodedAbi = abi.encode("registerPolicy(uint256)", 1);
-        uint256 policyID = IPA_IMP.Execute({
-                    to: address(module),
-                    value: 0,
-                    data: abi.encodeWithSignature("registerPolicy(uint256)", 1),
-                    nonce: ipAccount.state() + 1,
-                    deadline: deadline
-                });
         uint256 policyID = PIL_POLICY_MANAGER.registerPolicy(
             policyConfiguration
         );
@@ -62,7 +42,7 @@ contract IPAPolicyCreation {
         // Token Bound A IPID
         address ipId
     ) public returns (uint256) {
-        uint256 indexOpt = LICENSING_MODULE.addPolicyToIPA(ipId, policyID);
+        uint256 indexOpt = LICENSING_MODULE.addPolicyToIp(ipId, policyID);
         return indexOpt;
     }
 

@@ -6,7 +6,7 @@ import { PolicyProps } from '@/types'
 
 export const AddPolicyToIPAButton = ({ pilPolicy, tokenAccount }: { pilPolicy: number, tokenAccount: `0x${string}` }) => {
 
-    const { addPolicy, isPending, isConfirming, isConfirmed, error } = useAddPolicyToIPA();
+    const { addPolicy, hash, isPending, isConfirming, isConfirmed, error } = useAddPolicyToIPA();
 
     const onSubmit = async () => {
         // Implement minting logic here
@@ -29,6 +29,11 @@ export const AddPolicyToIPAButton = ({ pilPolicy, tokenAccount }: { pilPolicy: n
     };
 
     return (
-        <Button onClick={onSubmit} variant='default'>Add Policy</Button>
+        <>
+            <Button onClick={onSubmit} variant='default'>
+                {isConfirming ? 'Adding Policy' : 'Add Policy'}
+            </Button>
+            {isConfirmed && <p>transaction hash: {hash}</p>}
+        </>
     )
 }

@@ -2,13 +2,16 @@
 
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import IPAssetRemix from "@/contract/abi/IPARemixRegistrar.json";
-import { IPA_REMIX_REGISTRAR_ADDRESS } from "@/contract/contractAddress";
-import {useContext} from "react";
-import {WalletContext} from "@/contexts/WalletContext";
-import {sepolia} from "wagmi/chains";
+import {
+  IPA_REMIX_REGISTRAR_ADDRESS,
+  MODEL_NFT_ADDRESS,
+} from "@/contract/contractAddress";
+import { useContext } from "react";
+import { WalletContext } from "@/contexts/WalletContext";
+import { sepolia } from "wagmi/chains";
 
 export const useRegistrarIPRemix = () => {
-  const {walletClient} =  useContext(WalletContext)
+  const { walletClient } = useContext(WalletContext);
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
   const registerIPRemix = async (
@@ -22,15 +25,15 @@ export const useRegistrarIPRemix = () => {
       }
 
       const [account] = await walletClient.getAddresses();
+      console.log("account", licenseIds);
 
       return walletClient.writeContract({
         address: IPA_REMIX_REGISTRAR_ADDRESS,
         abi: IPAssetRemix.abi,
         functionName: "remix",
-        args: [licenseIds, tokenContract, tokenId],
+        args: [licenseIds, MODEL_NFT_ADDRESS, tokenId],
         account: account,
-        chain: sepolia
-
+        chain: sepolia,
       });
     } catch (error) {
       console.error("error", error);
